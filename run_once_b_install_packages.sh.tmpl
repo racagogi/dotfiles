@@ -1,5 +1,4 @@
 {{ if eq .chezmoi.osRelease.name "Arch Linux" -}}
 #!/bin/sh
-sudo timedatectl set-local-rtc 1 --adjust-system-clock
 sudo localectl set-locale ko_KR.UTF-8
 {{ end -}}
