@@ -9,17 +9,11 @@ curl -fL https://github.com/coursier/launchers/raw/master/cs-x86_64-pc-linux.gz 
 
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 cd ~/.rbenv && src/configure && make -C src && cd ~
-mkdir -p "$(rbenv root)"/plugins
-git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
 
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 cd ~/.pyenv && src/configure && make -C src && cd ~
 
 git clone https://github.com/syndbg/goenv.git ~/.goenv
-echo 'export GOENV_ROOT="$HOME/.goenv"' >> ~/.zshenv
-echo 'export PATH="$GOENV_ROOT/bin:$PATH"' >> ~/.zshenv
-echo 'export PATH="$GOROOT/bin:$PATH"' >> ~/.zshenv
-echo 'export PATH="$PATH:$GOPATH/bin"' >> ~/.zshenv
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 nvm install --lts
