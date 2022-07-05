@@ -66,13 +66,13 @@
     refreshPeriod = "840h"
 [".lang/opam"]
     type = "archive"
-    url = "https://github.com/ocaml/opam/archive/master.tar.gz" 
+    url = "https://github.com/ocaml/opam/archive/master.tar.gz"
     exact = true
     stripComponents = 1
     refreshPeriod = "840h"
 [".lang/tectonic"]
-    type = "archive"
-    url = "https://github.com/tectonic-typesetting/tectonic/archive/master.tar.gz" 
-    exact = true
+    type = "git-repo"
+    url = "https://github.com/tectonic-typesetting/tectonic.git"
     stripComponents = 1
+    args = ["--recursive"]
     refreshPeriod = "840h"
