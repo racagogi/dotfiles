@@ -1,6 +1,6 @@
-local lspinstaller = require "nvim-lsp-installer"
-local lspkind      = require 'lspkind'
+local lspinstaller    = require "nvim-lsp-installer"
 local lspconfig    = require 'lspconfig'
+local lspkind    = require 'lspkind'
 local enum         = require "enum"
 local servers      = enum.lsp
 local symbols      = enum.symbol
@@ -61,6 +61,7 @@ require 'nvim-treesitter.configs'.setup {
     indent = {
         enable = true
     },
+    parser_install_dir = "~/.treesitter",
     rainbow = {
         enable = true,
         extended_mode = true,

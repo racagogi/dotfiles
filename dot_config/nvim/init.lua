@@ -34,6 +34,7 @@ opt.clipboard:append('unnamedplus')
 opt.foldmethod = 'expr'
 opt.foldexpr = 'nvim_treesitter#foldexpr()'
 
+vim.opt.runtimepath:append("~/.treesitter")
 require 'lsp'
 require 'utils'
 require 'UI'
@@ -78,3 +79,4 @@ highlight! CmpItemKindProperty guibg=NONE guifg=#D4D4D4
 highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
 ]]
 vim.cmd('colorscheme tokyonight')
+
