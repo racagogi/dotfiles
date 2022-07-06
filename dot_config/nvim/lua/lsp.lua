@@ -52,7 +52,7 @@ lspinstaller.setup {}
 require("luasnip.loaders.from_vscode").lazy_load()
 luasnip.snippets = require("luasnip_snippets").load_snippets()
 require 'nvim-treesitter.configs'.setup {
-    ensure_installed = { "c", "lua", "rust" },
+    ensure_installed = 'all',
     sync_install = true,
     highlight = {
         enable = true,
