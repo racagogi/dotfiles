@@ -5,6 +5,7 @@ local enum = {
         "clojure_lsp",
         "cmake",
         "cssls",
+        "diagnosticls",
         "elixirls",
         "elmls",
         "erlangls",

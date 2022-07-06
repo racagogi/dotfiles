@@ -323,3 +323,9 @@
     exact = true
     stripComponents = 1
     refreshPeriod = "840h"
+[".lang/kotlin"]
+    type = "archive"
+    url = "https://github.com/JetBrains/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "840h"
