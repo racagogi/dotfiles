@@ -76,3 +76,9 @@
     stripComponents = 1
     args = ["--recursive"]
     refreshPeriod = "840h"
+[".lang/julia"]
+    type = "archive"
+    url = "https://github.com/JuliaLang/julia/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "840h"
