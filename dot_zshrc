@@ -33,3 +33,11 @@ export ARCHFLAGS="-arch x86_64"
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+alias cmh="chezmoi cd"
+alias cma="chezmoi apply"
+
+# opam configuration
+[[ ! -r /home/raca/.opam/opam-init/init.zsh ]] || source /home/raca/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+# >>> coursier install directory >>>
+export PATH="$PATH:/home/raca/.local/share/coursier/bin"
+# <<< coursier install directory <<<
