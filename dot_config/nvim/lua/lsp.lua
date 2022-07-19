@@ -1,7 +1,6 @@
-local lspinstaller    = require "nvim-lsp-installer"
+local lspinstaller = require "nvim-lsp-installer"
 local lspconfig    = require 'lspconfig'
-local lspkind    = require 'lspkind'
-local kind = require('lspsaga.lspkind')
+local lspkind      = require 'lspkind'
 local enum         = require "enum"
 local servers      = enum.lsp
 local symbols      = enum.symbol
@@ -12,43 +11,43 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 
 saga.init_lsp_saga({
     border_style = "rounded",
-    move_in_saga = { prev = '<C-p>',next = '<C-n>'},
+    move_in_saga = { prev = '<C-p>', next = '<C-n>' },
     diagnostic_header = { " ", " ", " ", "ﴞ " },
     show_diagnostic_source = true,
     diagnostic_source_bracket = {},
     code_action_icon = "💡",
     code_action_num_shortcut = true,
     code_action_lightbulb = {
-    enable = true,
-    sign = true,
-    sign_priority = 20,
-    virtual_text = true,
-},
+        enable = true,
+        sign = true,
+        sign_priority = 20,
+        virtual_text = true,
+    },
     finder_separator = "  ",
-max_preview_lines = 10,
-finder_action_keys = {
-    open = "o",
-    vsplit = "s",
-    split = "i",
-    tabe = "t",
-    quit = "q",
-    scroll_down = "<C-f>",
-    scroll_up = "<C-b>", -- quit can be a table
-},
-code_action_keys = {
-    quit = "q",
-    exec = "<CR>",
-},
-rename_action_quit = "<C-c>",
-definition_preview_icon = "  ",
--- show symbols in winbar must nightly
-symbol_in_winbar = {
-    in_custom = false,
-    enable = false,
-    separator = ' ',
-    show_file = true,
-    click_support = false,
-},
+    max_preview_lines = 10,
+    finder_action_keys = {
+        open = "o",
+        vsplit = "s",
+        split = "i",
+        tabe = "t",
+        quit = "q",
+        scroll_down = "<C-f>",
+        scroll_up = "<C-b>", -- quit can be a table
+    },
+    code_action_keys = {
+        quit = "q",
+        exec = "<CR>",
+    },
+    rename_action_quit = "<C-c>",
+    definition_preview_icon = "  ",
+    -- show symbols in winbar must nightly
+    symbol_in_winbar = {
+        in_custom = false,
+        enable = false,
+        separator = ' ',
+        show_file = true,
+        click_support = false,
+    },
 })
 
 
@@ -57,6 +56,23 @@ symbol_in_winbar = {
 lspinstaller.setup {}
 
 require("luasnip.loaders.from_vscode").lazy_load()
+
+require("cmp_dictionary").setup({
+    dic = {
+        spelllang = {
+            en = "~/.config/nvim/en.dict",
+        },
+    },
+    -- The following are default values.
+    exact = 2,
+    first_case_insensitive = false,
+    document = false,
+    document_command = "wn %s -over",
+    async = false,
+    capacity = 5,
+    debug = false,
+})
+
 luasnip.snippets = require("luasnip_snippets").load_snippets()
 require 'nvim-treesitter.configs'.setup {
     ensure_installed = 'all',
@@ -73,14 +89,23 @@ require 'nvim-treesitter.configs'.setup {
         enable = true,
         extended_mode = true,
         colors = {
-            "#ff85a8",
-            "#FFAF43",
-            "#FFCA0F",
-            "#3eef73",
-            "#00F1FF",
-            "#a4c6ff",
+            "#f7768e",
+            "#9ece6a",
+            "#e0af68",
+            "#7aa2f7",
+            "#bb9af7",
+            "#7dcfff",
         },
-    }
+    },
+    incremental_selection = {
+        enable = true,
+        keymaps = {
+            init_selection = "<F4>",
+            node_incremental = "<C-f>",
+            scope_incremental = "<C-s>",
+            node_decremental = "<C-d>",
+        },
+    },
 }
 cmp.setup {
     snippet = {
@@ -104,8 +129,8 @@ cmp.setup {
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>']     = cmp.mapping.abort(),
         ['<CR>']      = cmp.mapping.confirm {
-            behavior  = cmp.ConfirmBehavior.Replace,
-            select    = true,
+            behavior = cmp.ConfirmBehavior.Replace,
+            select   = true,
         },
         ['<Tab>']     = cmp.mapping(function(fallback)
             if cmp.visible() then
@@ -131,6 +156,7 @@ cmp.setup {
         { name = 'luasnip' },
         { name = 'buffer' },
         { name = 'calc' },
+        { name = 'dictionary' },
         { name = 'digraphs' },
         { name = 'nvim_lsp_document_symbol' },
         { name = 'nvim_lsp_signature_help' },

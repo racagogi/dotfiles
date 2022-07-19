@@ -30,17 +30,14 @@ defaults =
       startupHook = myStartupHook
     }
 
-
 myWorkspaces :: [String]
 myWorkspaces = ["١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"]
-
 
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeys conf@(XConfig {XMonad.modMask = modm}) =
   M.fromList $
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf),
       ((modm, xK_p), spawn "~/.xmonad/rofi/dmenu.sh"),
-      ((modm, xK_c), spawn "~/.xmonad/rofi/clipbord.sh"),
       ((modm, xK_s), spawn "maim -s ~/pictures/$(date +%Y-%m-%d-%H-%M-%S).png"),
       ((modm .|. shiftMask, xK_p), spawn "google-chrome-stable"),
       ((modm .|. shiftMask, xK_c), kill),

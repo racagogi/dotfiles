@@ -29,15 +29,16 @@ export ARCHFLAGS="-arch x86_64"
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-[ -f "/home/raca/.ghcup/env" ] && source "/home/raca/.ghcup/env" # ghcup-env
+export PATH="$PATH:/home/raca/.local/share/coursier/bin"
+export PATH="$HOME/.cabal/bin:$PATH"
+export PATH="/home/raca/.ghcup/bin:$PATH"
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
 alias cmh="chezmoi cd"
 alias cma="chezmoi apply"
+alias cme="chezmoi edit"
+alias rm="rm -rf"
 
-# opam configuration
 [[ ! -r /home/raca/.opam/opam-init/init.zsh ]] || source /home/raca/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
-# >>> coursier install directory >>>
-export PATH="$PATH:/home/raca/.local/share/coursier/bin"
-# <<< coursier install directory <<<
