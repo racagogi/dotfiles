@@ -72,8 +72,8 @@
     stripComponents = 1
     refreshPeriod = "840h"
 [".lang/tectonic"]
-    type = "git-repo"
-    url = "https://github.com/tectonic-typesetting/tectonic.git"
+    type = "archive"
+    url = "https://github.com/tectonic-typesetting/tectonic/archive/master.tar.gz"
     stripComponents = 1
     args = ["--recursive"]
     refreshPeriod = "840h"
@@ -92,6 +92,18 @@
 [".lang/kotlin"]
     type = "archive"
     url = "https://github.com/JetBrains/kotlin/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "840h"
+[".lang/coursier"]
+    type = "archive"
+    url = "https://github.com/coursier/coursier/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "840h"
+[".lang/elm"]
+    type = "archive"
+    url = "https://github.com/elm/compiler/archive/master.tar.gz"
     exact = true
     stripComponents = 1
     refreshPeriod = "840h"
