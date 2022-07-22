@@ -4,6 +4,7 @@ fi
 
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="$HOME/.rbenv/bin:$HOME/.pyenv/bin:$HOME/.nvm/bin:$HOME/.local/bin:$PATH"
+
 export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
 export GOENV_GOPATH_PREFIX="$HOME/.local/share/go"
