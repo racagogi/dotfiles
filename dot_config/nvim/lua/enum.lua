@@ -17,6 +17,7 @@ local enum = {
         "julials",
         "kotlin_language_server",
         "ltex",
+        "metals",
         "omnisharp",
         "ocamllsp",
         "pylsp",

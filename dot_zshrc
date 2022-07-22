@@ -41,5 +41,5 @@ alias cmh="chezmoi cd"
 alias cma="chezmoi apply"
 alias cme="chezmoi edit"
 alias rm="rm -rf"
-
+alias gc="google-chrome-stable"
 [[ ! -r /home/raca/.opam/opam-init/init.zsh ]] || source /home/raca/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null

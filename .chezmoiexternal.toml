@@ -72,8 +72,8 @@
     stripComponents = 1
     refreshPeriod = "840h"
 [".lang/tectonic"]
-    type = "archive"
-    url = "https://github.com/tectonic-typesetting/tectonic/archive/master.tar.gz"
+    type = "git-repo"
+    url = "https://github.com/tectonic-typesetting/tectonic.git"
     stripComponents = 1
     args = ["--recursive"]
     refreshPeriod = "840h"

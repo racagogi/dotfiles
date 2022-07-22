@@ -6,10 +6,10 @@ local servers      = enum.lsp
 local symbols      = enum.symbol
 local luasnip      = require 'luasnip'
 local cmp          = require 'cmp'
-local saga         = require 'lspsaga'
+--local saga         = require 'lspsaga'
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-saga.init_lsp_saga({
+--[[saga.init_lsp_saga({
     border_style = "rounded",
     move_in_saga = { prev = '<C-p>', next = '<C-n>' },
     diagnostic_header = { " ", " ", " ", "ﴞ " },
@@ -49,7 +49,7 @@ saga.init_lsp_saga({
         click_support = false,
     },
 })
-
+--]]
 
 
 
