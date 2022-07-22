@@ -58,6 +58,7 @@ vim.keymap.set("n", "<space>r", vim.lsp.buf.rename, opts)
 vim.keymap.set("n", "<space>h", vim.lsp.buf.hover, opts)
 vim.keymap.set("n", "<space>s", vim.lsp.buf.signature_help, opts)
 vim.keymap.set("n", "<space>d", vim.lsp.buf.definition, opts)
+vim.keymap.set("n", "<space>i", vim.lsp.buf.implementation, opts)
 vim.keymap.set('n', '<space>n', ':NvimTreeToggle<CR>', opts)
 vim.keymap.set('n', '<space>g', ':Neogit<CR>', opts)
 

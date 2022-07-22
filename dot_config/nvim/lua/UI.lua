@@ -160,7 +160,7 @@ vim.g.symbols_outline = {
 
 vim.g.tokyonight_colors = {
     comment   = "#1abc9c",
-    fg_gutter = '#1f2335',
+    fg_gutter = '#414868',
     bg_float  = '#24283b',
 }
 vim.g.tokyonight_style               = "night"
