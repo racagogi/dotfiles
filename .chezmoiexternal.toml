@@ -77,8 +77,8 @@
     args = ["--recursive"]
     refreshPeriod = "840h"
 [".lang/julia"]
-    type = "archive"
-    url = "https://github.com/JuliaLang/julia/archive/master.tar.gz"
+    type = "git-repo"
+    url = "https://github.com/JuliaLang/julia.git"
     exact = true
     stripComponents = 1
     refreshPeriod = "840h"
