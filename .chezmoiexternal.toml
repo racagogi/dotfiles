@@ -40,66 +40,6 @@
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"
-[".lang/gprolog"]
-    type = "archive"
-    url = "https://github.com/didoudiaz/gprolog/archive/master.tar.gz"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "840h"
-[".lang/erlnag"]
-    type = "archive"
-    url = "https://github.com/erlang/otp/archive/master.tar.gz"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "840h"
-[".lang/elixir"]
-    type = "archive"
-    url = "https://github.com/elixir-lang/elixir/archive/master.tar.gz"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "840h"
-[".lang/clojure"]
-    type = "archive"
-    url = "https://github.com/clojure/clojure/archive/master.tar.gz"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "840h"
-[".lang/opam"]
-    type = "archive"
-    url = "https://github.com/ocaml/opam/archive/master.tar.gz"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "840h"
-[".lang/tectonic"]
-    type = "git-repo"
-    url = "https://github.com/tectonic-typesetting/tectonic.git"
-    stripComponents = 1
-    args = ["--recursive"]
-    refreshPeriod = "840h"
-[".lang/julia"]
-    type = "git-repo"
-    url = "https://github.com/JuliaLang/julia.git"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "840h"
-[".lang/rebar3"]
-    type = "archive"
-    url = "https://github.com/erlang/rebar3/archive/master.tar.gz"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "840h"
-[".lang/kotlin"]
-    type = "archive"
-    url = "https://github.com/JetBrains/kotlin/archive/master.tar.gz"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "840h"
-[".lang/elm"]
-    type = "archive"
-    url = "https://github.com/elm/compiler/archive/master.tar.gz"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "840h"
 ['.local/share/nvim/site/pack/plugins/start/chezmoi.vim']
     type = "archive"
     url = "https://github.com/alker0/chezmoi.vim/archive/master.tar.gz"
