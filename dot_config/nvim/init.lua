@@ -1,6 +1,6 @@
 local opt     = vim.opt
 local opts    = { noremap = true, silent = true }
-local tapsize = 4
+local tapsize = 2
 
 opt.termguicolors = true
 opt.encoding      = 'utf-8'
