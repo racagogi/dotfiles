@@ -20,7 +20,8 @@ git clone https://github.com/syndbg/goenv.git ~/.goenv
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 nvm install --lts
 
-wget https://download.visualstudio.microsoft.com/download/pr/0e83f50a-0619-45e6-8f16-dc4f41d1bb16/e0de908b2f070ef9e7e3b6ddea9d268c/dotnet-sdk-6.0.302-linux-x64.tar.gz
-mkdir -p $HOME/.local/share/dotnet/ && tar zxf dotnet-sdk-6.0.302-linux-x64.tar.gz -C $HOME/.local/share/dotnet/
-ln -sf $HOME/.local/share/dotnet/dotnet $HOME/.local/bin/
+curl -L -o elm.gz https://github.com/elm/compiler/releases/download/0.19.1/binary-for-linux-64-bit.gz
+gunzip elm.gz
+chmod +x elm
+mv elm ~/.local/bin/
 {{ end -}}
