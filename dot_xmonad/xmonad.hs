@@ -17,7 +17,7 @@ main = do
 
 defaults =
   def
-    { terminal = "kitty",
+    { terminal = "wezterm",
       focusFollowsMouse = False,
       clickJustFocuses = False,
       borderWidth = 0,
