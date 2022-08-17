@@ -43,3 +43,5 @@ alias cme="chezmoi edit"
 alias rm="rm -rf"
 alias gc="google-chrome-stable"
 [[ ! -r /home/raca/.opam/opam-init/init.zsh ]] || source /home/raca/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+[ -f "/home/raca/.ghcup/env" ] && source "/home/raca/.ghcup/env" # ghcup-env[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

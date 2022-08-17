@@ -6,57 +6,13 @@ local servers      = enum.lsp
 local symbols      = enum.symbol
 local luasnip      = require 'luasnip'
 local cmp          = require 'cmp'
---local saga         = require 'lspsaga'
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-
---[[saga.init_lsp_saga({
-    border_style = "rounded",
-    move_in_saga = { prev = '<C-p>', next = '<C-n>' },
-    diagnostic_header = { " ", " ", " ", "ﴞ " },
-    show_diagnostic_source = true,
-    diagnostic_source_bracket = {},
-    code_action_icon = "💡",
-    code_action_num_shortcut = true,
-    code_action_lightbulb = {
-        enable = true,
-        sign = true,
-        sign_priority = 20,
-        virtual_text = true,
-    },
-    finder_separator = "  ",
-    max_preview_lines = 10,
-    finder_action_keys = {
-        open = "o",
-        vsplit = "s",
-        split = "i",
-        tabe = "t",
-        quit = "q",
-        scroll_down = "<C-f>",
-        scroll_up = "<C-b>", -- quit can be a table
-    },
-    code_action_keys = {
-        quit = "q",
-        exec = "<CR>",
-    },
-    rename_action_quit = "<C-c>",
-    definition_preview_icon = "  ",
-    -- show symbols in winbar must nightly
-    symbol_in_winbar = {
-        in_custom = false,
-        enable = false,
-        separator = ' ',
-        show_file = true,
-        click_support = false,
-    },
-})
---]]
-
 
 
 lspinstaller.setup {}
 
+require('idris2').setup({})
 require("luasnip.loaders.from_vscode").lazy_load()
-
 require("cmp_dictionary").setup({
     dic = {
         spelllang = {
