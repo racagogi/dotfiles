@@ -4,7 +4,12 @@ return {
   color_scheme = 'tokyonight',
   check_for_updates = false,
   font_size = 14.0,
-  font = wezterm.font "JetBrainsMono Nerd Font Mono",
+  font = wezterm.font_with_fallback {
+    'JetBrains Mono',
+    -- 'Noto Serif CJK KR',
+    'KoPubBatang_Pro',
+    'JetBrainsMono Nerd Font Mono',
+  },
   adjust_window_size_when_changing_font_size = false,
   audible_bell = "Disabled",
   enable_scroll_bar = false,
