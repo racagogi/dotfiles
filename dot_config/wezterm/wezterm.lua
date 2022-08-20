@@ -6,9 +6,9 @@ return {
   font_size = 14.0,
   font = wezterm.font_with_fallback {
     'JetBrains Mono',
-    -- 'Noto Serif CJK KR',
     'KoPubBatang_Pro',
     'JetBrainsMono Nerd Font Mono',
+    'Noto Serif CJK KR'
   },
   adjust_window_size_when_changing_font_size = false,
   audible_bell = "Disabled",
