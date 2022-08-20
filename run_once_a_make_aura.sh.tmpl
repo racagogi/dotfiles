@@ -1,6 +1,28 @@
 {{ if eq .chezmoi.osRelease.name "Arch Linux" -}}
 #!/bin/sh
+sudo localectl set-locale ko_KR.UTF-8
+sudo timedatectl set-local-rtc 1 --adjust-system-clock
 git clone https://aur.archlinux.org/aura-bin.git
 git clone https://github.com/vinceliuice/grub2-themes.git
 mkdir ~/.local/bin/
+curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+cd ~/.rbenv && src/configure && make -C src && cd ~
+mkdir -p ~/.rbenv/plugins
+git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+
+git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+cd ~/.pyenv && src/configure && make -C src && cd ~
+
+git clone https://github.com/syndbg/goenv.git ~/.goenv
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+nvm install --lts
+
+curl -L -o elm.gz https://github.com/elm/compiler/releases/download/0.19.1/binary-for-linux-64-bit.gz
+gunzip elm.gz
+chmod +x elm
+mv elm ~/.local/bin/
+
 {{ end -}}
