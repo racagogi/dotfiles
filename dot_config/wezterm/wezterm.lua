@@ -29,20 +29,20 @@ return {
   scrollback_lines = 3500,
   disable_default_key_bindings = true,
   keys = {
-    { key = 'c', mods = 'CTRL', action = wezterm.action.CopyTo 'ClipboardAndPrimarySelection' },
+    { key = 'c', mods = 'CTRL', action = wezterm.action.CopyTo 'Clipboard' },
     { key = 'v', mods = 'CTRL', action = wezterm.action.PasteFrom 'Clipboard' },
     {
       key = 'v',
       mods = 'CTRL|SHIFT',
       action = wezterm.action.SplitHorizontal {
-        domain = 'CurrentPaneDomain'
+        domain = 'DefaultDomain'
       },
     },
     {
       key = 'Enter',
       mods = 'CTRL|SHIFT',
       action = wezterm.action.SplitVertical {
-        domain = 'CurrentPaneDomain'
+        domain = 'DefaultDomain'
       },
     },
     {
