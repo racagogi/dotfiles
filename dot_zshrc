@@ -36,6 +36,7 @@ export PATH="/home/raca/.ghcup/bin:$PATH"
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 alias cmh="chezmoi cd"
 alias cma="chezmoi apply"
@@ -44,4 +45,5 @@ alias rm="rm -rf"
 alias gc="google-chrome-stable"
 [[ ! -r /home/raca/.opam/opam-init/init.zsh ]] || source /home/raca/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
-[ -f "/home/raca/.ghcup/env" ] && source "/home/raca/.ghcup/env" # ghcup-env[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -f "/home/raca/.ghcup/env" ] && source "/home/raca/.ghcup/env"
+
