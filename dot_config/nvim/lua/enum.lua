@@ -19,6 +19,7 @@ local enum = {
         "omnisharp",
         "ocamllsp",
         "pyright",
+        "racket_langserver",
         "rust_analyzer",
         "sorbet",
         "sumneko_lua",

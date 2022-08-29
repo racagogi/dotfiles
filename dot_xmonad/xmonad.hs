@@ -1,4 +1,5 @@
 import qualified Data.Map as M
+import Graphics.X11.ExtraTypes.XF86
 import System.Exit
 import XMonad
 import XMonad.Actions.SpawnOn
@@ -36,12 +37,7 @@ myWorkspaces = ["١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"]
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeys conf@(XConfig {XMonad.modMask = modm}) =
   M.fromList $
-    [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf),
-      ((modm, xK_p), spawn "~/.xmonad/rofi/dmenu.sh"),
-      ((modm, xK_s), spawn "maim -s ~/pictures/$(date +%Y-%m-%d-%H-%M-%S).png"),
-      ((modm .|. shiftMask, xK_p), spawn "google-chrome-stable"),
-      ((modm .|. shiftMask, xK_c), kill),
-      ((modm, xK_space), sendMessage NextLayout),
+    [ ((modm, xK_space), sendMessage NextLayout),
       ((modm, xK_j), windows W.focusDown),
       ((modm, xK_k), windows W.focusUp),
       ((modm, xK_Return), windows W.swapMaster),
@@ -49,7 +45,18 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
       ((modm .|. shiftMask, xK_k), windows W.swapUp),
       ((modm, xK_t), withFocused $ windows . W.sink),
       ((modm .|. shiftMask, xK_q), io exitSuccess),
-      ((modm, xK_q), spawn "~/.xmonad/polybar/main.sh")
+      ((0, xF86XK_AudioMute), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle"),
+      ((0, xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%"),
+      ((0, xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%"),
+      -- ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf),
+      -- ((modm, xK_p), spawn "~/.xmonad/rofi/dmenu.sh"),
+      -- ((modm, xK_s), spawn "maim -s ~/$(date +%Y-%m-%d-%H-%M-%S).png"),
+      -- ((modm .|. shiftMask, xK_p), spawn "google-chrome-stable"),
+      ((modm .|. shiftMask, xK_c), kill),
+      ((noModMask, xK_Menu), spawn "google-chrome-stable"),
+      ((noModMask, xK_Print), spawn "maim -s ~/$(date +%Y-%m-%d-%H-%M-%S).png"),
+      ((modm, xK_F4), spawn "~/.xmonad/rofi/dmenu.sh"),
+      ((noModMask, xF86XK_Calculator), spawn $ XMonad.terminal conf)
     ]
       ++ [ ((m .|. modm, k), windows $ f i)
            | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9],
