@@ -48,14 +48,14 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
       ((0, xF86XK_AudioMute), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle"),
       ((0, xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%"),
       ((0, xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%"),
-      ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf),
+      -- ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf),
       -- ((modm, xK_p), spawn "~/.xmonad/rofi/dmenu.sh"),
       -- ((modm, xK_s), spawn "maim -s ~/$(date +%Y-%m-%d-%H-%M-%S).png"),
       -- ((modm .|. shiftMask, xK_p), spawn "google-chrome-stable"),
-      -- ((modm .|. shiftMask, xK_c), kill),
+      ((modm .|. shiftMask, xK_c), kill),
       ((noModMask, xK_Menu), spawn "google-chrome-stable"),
       ((noModMask, xK_Print), spawn "maim -s ~/$(date +%Y-%m-%d-%H-%M-%S).png"),
-      ((modm, xK_F4), spawn "~/.xmonad/rofi/dmenu.sh"),
+      ((noModMask, xK_F4), spawn "~/.xmonad/rofi/dmenu.sh"),
       ((noModMask, xF86XK_Calculator), spawn $ XMonad.terminal conf)
     ]
       ++ [ ((m .|. modm, k), windows $ f i)
