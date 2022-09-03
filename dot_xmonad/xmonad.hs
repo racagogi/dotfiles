@@ -55,7 +55,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
       ((modm .|. shiftMask, xK_c), kill),
       ((noModMask, xK_Menu), spawn "google-chrome-stable"),
       ((noModMask, xK_Print), spawn "maim -s ~/$(date +%Y-%m-%d-%H-%M-%S).png"),
-      ((noModMask, xK_F4), spawn "~/.xmonad/rofi/dmenu.sh"),
+      ((modm, xK_q), spawn "~/.xmonad/rofi/dmenu.sh"),
       ((noModMask, xF86XK_Calculator), spawn $ XMonad.terminal conf)
     ]
       ++ [ ((m .|. modm, k), windows $ f i)
