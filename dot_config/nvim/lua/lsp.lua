@@ -1,4 +1,3 @@
-local lspinstaller = require "nvim-lsp-installer"
 local lspconfig    = require 'lspconfig'
 local lspkind      = require 'lspkind'
 local enum         = require "enum"
@@ -8,9 +7,10 @@ local luasnip      = require 'luasnip'
 local cmp          = require 'cmp'
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-
-lspinstaller.setup {}
-
+require("mason").setup()
+require("mason-lspconfig").setup({
+  automatic_installation = {exclude = {"hls"}},
+})
 require('idris2').setup({})
 require("luasnip.loaders.from_vscode").lazy_load()
 require("cmp_dictionary").setup({
@@ -19,7 +19,6 @@ require("cmp_dictionary").setup({
             en = "~/.config/nvim/en.dict",
         },
     },
-    -- The following are default values.
     exact = 2,
     first_case_insensitive = false,
     document = false,
@@ -41,18 +40,6 @@ require 'nvim-treesitter.configs'.setup {
         enable = true
     },
     parser_install_dir = "~/.treesitter",
-    rainbow = {
-        enable = true,
-        extended_mode = true,
-        colors = {
-            "#f7768e",
-            "#9ece6a",
-            "#e0af68",
-            "#7aa2f7",
-            "#bb9af7",
-            "#7dcfff",
-        },
-    },
     incremental_selection = {
         enable = true,
         keymaps = {
