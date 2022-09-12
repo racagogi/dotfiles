@@ -43,9 +43,17 @@ alias cmh="chezmoi cd"
 alias cma="chezmoi apply"
 alias cme="chezmoi edit"
 alias rm="rm -rf"
+alias cp="cp -r"
 alias gc="google-chrome-stable"
 [[ ! -r /home/raca/.opam/opam-init/init.zsh ]] || source /home/raca/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
 [ -f "/home/raca/.ghcup/env" ] && source "/home/raca/.ghcup/env"
 xset -dpms
 xset s off
+swap ()
+{
+    local TMPFILE=tmp.$$
+   sudo mv "$1" $TMPFILE
+   sudo mv "$2" "$1"
+   sudo mv $TMPFILE "$2"
+}

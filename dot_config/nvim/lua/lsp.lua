@@ -11,7 +11,7 @@ require("mason").setup()
 require("mason-lspconfig").setup({
   automatic_installation = {exclude = {"hls"}},
 })
-require('idris2').setup({})
+--require('idris2').setup({})
 require("luasnip.loaders.from_vscode").lazy_load()
 require("cmp_dictionary").setup({
     dic = {
