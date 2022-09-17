@@ -14,7 +14,6 @@ local enum = {
     "jsonls",
     "julials",
     "kotlin_language_server",
-    "ltex",
     "marksman",
     "metals",
     "omnisharp",
