@@ -23,7 +23,6 @@ require('packer').startup(function(use)
   use 'onsails/lspkind.nvim'
   use 'L3MON4D3/LuaSnip'
   use 'simrat39/symbols-outline.nvim'
-  use 'glepnir/lspsaga.nvim'
   use 'nvim-treesitter/nvim-treesitter'
   use 'p00f/nvim-ts-rainbow'
   use 'saadparwaiz1/cmp_luasnip'

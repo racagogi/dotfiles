@@ -53,7 +53,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
       -- ((modm, xK_s), spawn "maim -s ~/$(date +%Y-%m-%d-%H-%M-%S).png"),
       -- ((modm .|. shiftMask, xK_p), spawn "google-chrome-stable"),
       ((modm .|. shiftMask, xK_c), kill),
-      ((noModMask, xK_Menu), spawn "google-chrome-stable"),
+      ((noModMask, xK_Menu), spawn "brave"),
       ((noModMask, xK_Print), spawn "maim -s ~/$(date +%Y-%m-%d-%H-%M-%S).png"),
       ((modm, xK_q), spawn "~/.xmonad/rofi/dmenu.sh"),
       ((noModMask, xF86XK_Calculator), spawn $ XMonad.terminal conf)
@@ -75,7 +75,7 @@ myLayout ::
         (Choose Tall (Choose Grid Full))
     )
     Window
-myLayout = avoidStruts $ spacingRaw True (Border 5 0 5 0) True (Border 0 5 0 5) True $ tiled ||| Grid ||| Full
+myLayout = avoidStruts $ spacingRaw True (Border 8 0 8 0) True (Border 0 8 0 8) True $ tiled ||| Grid ||| Full
   where
     tiled = Tall nmaster delta ratio
     nmaster = 1

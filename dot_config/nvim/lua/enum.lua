@@ -1,7 +1,8 @@
 local enum = {
   lsp = {
     "bashls",
-    "clangd",
+    -- "clangd",
+    "ccls",
     "clojure_lsp",
     "cmake",
     "cssls",
