@@ -100,7 +100,7 @@ cmp.setup {
         { name = 'buffer' },
         { name = 'calc' },
         { name = 'dictionary' },
-        { name = 'digraphs' },
+        -- { name = 'digraphs' },
         { name = 'nvim_lsp_document_symbol' },
         { name = 'nvim_lsp_signature_help' },
         { name = 'path' },

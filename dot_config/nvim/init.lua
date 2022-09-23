@@ -49,6 +49,8 @@ require('packer').startup(function(use)
   use 'jayp0521/mason-null-ls.nvim'
   use 'williamboman/mason-lspconfig.nvim'
   use 'jose-elias-alvarez/null-ls.nvim'
+  use 'liuchengxu/vim-which-key'
+  use 'matbme/JABS.nvim'
 end)
 
 opt.termguicolors = true
@@ -111,5 +113,7 @@ vim.keymap.set("n", "<space>d", vim.lsp.buf.definition, opts)
 vim.keymap.set("n", "<space>i", vim.lsp.buf.implementation, opts)
 vim.keymap.set('n', '<space>n', ':NvimTreeToggle<CR>', opts)
 vim.keymap.set('n', '<space>g', ':Neogit<CR>', opts)
+vim.keymap.set('n', '<space>p', ':!brave %<CR>', opts)
+vim.keymap.set('n', '<space>j', ':JABSOpen<CR>', opts)
 
 vim.cmd('colorscheme tokyonight')
