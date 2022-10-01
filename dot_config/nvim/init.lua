@@ -2,7 +2,10 @@ local opt     = vim.opt
 local opts    = { noremap = true, silent = true }
 local tapsize = 2
 
-vim.cmd [[packadd packer.nvim]]
+vim.cmd [[
+packadd packer.nvim
+set mouse =
+]]
 require('packer').startup(function(use)
   use 'alker0/chezmoi.vim'
   use 'kyazdani42/nvim-web-devicons'
@@ -85,6 +88,7 @@ opt.clipboard:append('unnamedplus')
 opt.foldmethod = 'expr'
 opt.foldexpr = 'nvim_treesitter#foldexpr()'
 
+
 vim.opt.runtimepath:append("~/.treesitter")
 require 'lsp'
 require 'utils'
@@ -117,3 +121,12 @@ vim.keymap.set('n', '<space>p', ':!brave %<CR>', opts)
 vim.keymap.set('n', '<space>j', ':JABSOpen<CR>', opts)
 
 vim.cmd('colorscheme tokyonight')
+vim.cmd[[
+hi rainbowcol1 guifg=#f7768e
+hi rainbowcol2 guifg=#ff9e64
+hi rainbowcol3 guifg=#e0af68
+hi rainbowcol4 guifg=#9ece6a
+hi rainbowcol5 guifg=#2ac3de
+hi rainbowcol6 guifg=#7aa2f7
+hi rainbowcol7 guifg=#bb9af7
+]]
