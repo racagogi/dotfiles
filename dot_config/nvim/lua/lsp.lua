@@ -146,9 +146,17 @@ for _, server in ipairs(servers) do
         }
       }
     }
-  else
-    lspconfig[server].setup {
-      capabilities = capabilities,
-    }
+  else if server == "html" then
+      lspconfig[server].setup {
+        capabilities = capabilities,
+        settings = {
+          filetypes = { "html", "antlers", "htmldjango" }
+        }
+      }
+    else
+      lspconfig[server].setup {
+        capabilities = capabilities,
+      }
+    end
   end
 end

@@ -25,6 +25,7 @@ local enum = {
     "sorbet",
     "sumneko_lua",
     "taplo",
+    "tailwindcss",
     "texlab",
     "tsserver",
     "vimls",
