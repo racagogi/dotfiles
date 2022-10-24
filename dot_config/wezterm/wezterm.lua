@@ -21,10 +21,11 @@ return {
   },
   window_background_opacity = 0.6,
   window_padding = {
-    left = '0.5cell',
-    right = '0cell',
-    top = '0.5cell',
-    bottom = '0.5cell',
+		left = 0,
+		right = 0,
+		top = 0,
+		bottom = 0,
+
   },
   scrollback_lines = 3500,
   disable_default_key_bindings = true,
