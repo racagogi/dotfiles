@@ -1,7 +1,6 @@
 local wezterm = require "wezterm"
-
 return {
-  color_scheme = 'tokyonight',
+  color_scheme = 'tokyonight-storm',
   check_for_updates = false,
   font_size = 14.0,
   font = wezterm.font_with_fallback {
@@ -19,12 +18,12 @@ return {
     saturation = 1.0,
     brightness = 1.0,
   },
-  window_background_opacity = 0.6,
+  window_background_opacity = 1,
   window_padding = {
-		left = 0,
-		right = 0,
-		top = 0,
-		bottom = 0,
+    left = 5,
+    right = 5,
+    top = 0,
+    bottom = 0,
 
   },
   scrollback_lines = 3500,
