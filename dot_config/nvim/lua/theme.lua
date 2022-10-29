@@ -38,7 +38,7 @@ require("tokyonight").setup({
   hide_inactive_statusline = true,
   on_colors = function(c)
     c.comment = c.teal
-    c.fg_gutter = c.fg
+    c.fg_gutter = c.bg_dark
     c.dark5 = c.orange
   end,
   on_highlights = function(hl, c)

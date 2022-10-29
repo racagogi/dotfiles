@@ -15,11 +15,12 @@ require('lualine').setup {
     },
     lualine_b = { 'branch', 'diff', 'diagnostics' },
     lualine_c = {
-      'filetype',
     },
     lualine_x = {
     },
-    lualine_y = {},
+    lualine_y = {
+      'filetype',
+    },
     lualine_z = {
       'progress',
       function()
@@ -35,9 +36,7 @@ require('lualine').setup {
             return 'ﮣ ' .. client.name
           end
         end
-
       end,
-
     }
   },
 
