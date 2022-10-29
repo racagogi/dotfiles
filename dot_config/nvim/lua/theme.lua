@@ -1,4 +1,4 @@
-require'range-highlight'.setup{}
+require 'range-highlight'.setup {}
 require("indent_blankline").setup {
   show_current_context       = true,
   show_current_context_start = true,
@@ -31,18 +31,43 @@ require("tokyonight").setup({
     keywords = { italic = true },
     functions = {},
     variables = {},
+    sidebars = 'transparent'
   },
-  sidebars = { "qf", "help" },
   dim_inactive = false,
   lualine_bold = true,
+  hide_inactive_statusline = true,
   on_colors = function(c)
     c.comment = c.teal
+    c.fg_gutter = c.fg
+    c.dark5 = c.orange
   end,
   on_highlights = function(hl, c)
+    local prompt = "#2d3149"
+    hl.TelescopeNormal = {
+      bg = c.bg_dark,
+      fg = c.fg_dark,
+    }
     hl.TelescopeBorder = {
+      bg = c.bg_dark,
       fg = c.bg_dark,
     }
+    hl.TelescopePromptNormal = {
+      bg = prompt,
+    }
     hl.TelescopePromptBorder = {
+      bg = prompt,
+      fg = prompt,
+    }
+    hl.TelescopePromptTitle = {
+      bg = prompt,
+      fg = prompt,
+    }
+    hl.TelescopePreviewTitle = {
+      bg = c.bg_dark,
+      fg = c.bg_dark,
+    }
+    hl.TelescopeResultsTitle = {
+      bg = c.bg_dark,
       fg = c.bg_dark,
     }
   end,

@@ -50,9 +50,7 @@ require('lualine').setup {
     lualine_z = {}
   },
   winbar = {
-    lualine_a = {
-      'buffers'
-    },
+    lualine_a = {},
     lualine_b = {},
     lualine_c = {},
     lualine_x = {},
@@ -62,9 +60,7 @@ require('lualine').setup {
   },
   inactive_winbar = {
     lualine_a = {},
-    lualine_b = {
-      'buffers'
-    },
+    lualine_b = {},
     lualine_c = {},
     lualine_x = {},
     lualine_y = {},
@@ -138,9 +134,9 @@ require("symbols-outline").setup({
 require("nvim-tree").setup({
   disable_netrw = true
   , hijack_unnamed_buffer_when_opening = true
-  , remove_keymaps = true
-  , view = {
-    number = true
+  , remove_keymaps = true,
+  view = {
+    number = false
     , mappings = {
       custom_only = true
       , list = {

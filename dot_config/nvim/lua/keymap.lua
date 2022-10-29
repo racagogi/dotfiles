@@ -19,7 +19,6 @@ vim.keymap.set("n", "<space>i", vim.lsp.buf.implementation, opts)
 vim.keymap.set('n', '<space>t', vim.lsp.buf.type_definition, opts)
 vim.keymap.set('n', '<space>r', vim.lsp.buf.references, opts)
 
-
 vim.keymap.set('n', '<F1>', ':NvimTreeToggle<CR>', opts)
 vim.keymap.set('n', '<F2>', ':SymbolsOutline<CR>', opts)
 vim.keymap.set('n', '<F3>', '<cmd>IronRepl<cr>')
@@ -32,9 +31,7 @@ local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>f', builtin.find_files, {})
 vim.keymap.set('n', '<leader>r', builtin.registers, {})
 vim.keymap.set('n', '<leader>b', builtin.buffers, {})
-vim.keymap.set('n', '<leader>h', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>k', builtin.keymaps, {})
-
 
 local hop = require('hop')
 local directions = require('hop.hint').HintDirection
