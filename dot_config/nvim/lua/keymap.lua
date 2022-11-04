@@ -32,6 +32,7 @@ vim.keymap.set('n', '<leader>f', builtin.find_files, {})
 vim.keymap.set('n', '<leader>r', builtin.registers, {})
 vim.keymap.set('n', '<leader>b', builtin.buffers, {})
 vim.keymap.set('n', '<leader>k', builtin.keymaps, {})
+vim.keymap.set('n', '<leader>i', ':lua require(\'telescope\').extensions.media_files.media_files()<CR>')
 
 local hop = require('hop')
 local directions = require('hop.hint').HintDirection
