@@ -2,19 +2,19 @@
 #!/bin/sh
 sudo localectl set-locale ko_KR.UTF-8
 sudo timedatectl set-local-rtc 1 --adjust-system-clock
-git clone https://aur.archlinux.org/aura-bin.git
-git clone https://github.com/vinceliuice/grub2-themes.git
+git clone --depth 1 https://aur.archlinux.org/aura-bin.git
+git clone --depth 1 https://github.com/vinceliuice/grub2-themes.git
 mkdir ~/.local/bin/
 
-git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+git clone --depth 1 https://github.com/rbenv/rbenv.git ~/.rbenv
 cd ~/.rbenv && src/configure && make -C src && cd ~
 mkdir -p ~/.rbenv/plugins
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 
-git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+git clone --depth 1 https://github.com/pyenv/pyenv.git ~/.pyenv
 cd ~/.pyenv && src/configure && make -C src && cd ~
 
-git clone https://github.com/syndbg/goenv.git ~/.goenv
+git clone --depth 1 https://github.com/syndbg/goenv.git ~/.goenv
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 
@@ -24,6 +24,9 @@ chmod +x elm
 mv elm ~/.local/bin/
 
 curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+
+git clone --depth 1 https://github.com/xmonad/xmonad-contrib
+git clone --depth 1 https://github.com/xmonad/xmonad
 
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
