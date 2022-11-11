@@ -33,18 +33,18 @@ set mouse=
 map <F1> <Esc>
 imap <F1> <Esc>
 lua require 'plugins'
-colorscheme tokyonight
-highlight rainbowcol1 guifg=#f7768e
-highlight rainbowcol2 guifg=#ff9e64
-highlight rainbowcol3 guifg=#e0af68
-highlight rainbowcol4 guifg=#9ece6a
-highlight rainbowcol5 guifg=#2ac3de
-highlight rainbowcol6 guifg=#7aa2f7
-highlight rainbowcol7 guifg=#bb9af7
-highlight IndentBlanklineIndent1 guifg=#f7768e
-highlight IndentBlanklineIndent2 guifg=#ff9e64
-highlight IndentBlanklineIndent3 guifg=#e0af68
-highlight IndentBlanklineIndent4 guifg=#9ece6a
-highlight IndentBlanklineIndent5 guifg=#2ac3de
-highlight IndentBlanklineIndent6 guifg=#7aa2f7
-highlight IndentBlanklineIndent7 guifg=#bb9af7
+colorscheme selenized
+highlight rainbowcol1 guifg=#cc1729
+highlight rainbowcol2 guifg=#bc5819
+highlight rainbowcol3 guifg=#a78300
+highlight rainbowcol4 guifg=#428b00
+highlight rainbowcol5 guifg=#006dce
+highlight rainbowcol6 guifg=#00978a
+highlight rainbowcol7 guifg=#825dc0
+highlight IndentBlanklineIndent1 guifg=#cc1729
+highlight IndentBlanklineIndent2 guifg=#bc5819
+highlight IndentBlanklineIndent3 guifg=#a78300
+highlight IndentBlanklineIndent4 guifg=#428b00
+highlight IndentBlanklineIndent5 guifg=#006dce
+highlight IndentBlanklineIndent6 guifg=#00978a
+highlight IndentBlanklineIndent7 guifg=#825dc0

@@ -23,6 +23,7 @@ vim.keymap.set('n', '<F1>', ':NvimTreeToggle<CR>', opts)
 vim.keymap.set('n', '<F2>', ':SymbolsOutline<CR>', opts)
 vim.keymap.set('n', '<F3>', '<cmd>IronRepl<cr>')
 vim.keymap.set('n', '<F4>', ':!brave %<CR>', opts)
+vim.keymap.set('n', '<F5>', ':w<CR>', opts)
 
 vim.keymap.set('n', '<M-1>', ':IconPickerInsert<CR>', opts)
 vim.keymap.set('n', '<M-2>', ':lua require("expand_expr").expand()<CR>', opts)
