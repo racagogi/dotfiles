@@ -33,6 +33,7 @@ set mouse=
 map <F1> <Esc>
 imap <F1> <Esc>
 lua require 'plugins'
+set background=light
 colorscheme selenized
 highlight rainbowcol1 guifg=#cc1729
 highlight rainbowcol2 guifg=#bc5819

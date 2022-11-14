@@ -1,6 +1,3 @@
-require("mason").setup()
-require("mason-lspconfig").setup()
-
 local servers = {
   "bashls",
   "ccls",
@@ -31,6 +28,11 @@ local servers = {
   "vimls",
   "yamlls",
 }
+require("mason").setup()
+require("mason-lspconfig").setup({
+    automatic_installation = { exclude = { "hls" } }
+})
+
 
 local lspconfig = require 'lspconfig'
 local capabilities = vim.lsp.protocol.make_client_capabilities()
