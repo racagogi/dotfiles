@@ -3,12 +3,12 @@ local colors, _ = wezterm.color.load_scheme("/home/raca/.config/wezterm/selenize
 return {
     colors = colors,
     check_for_updates = false,
-    font_size = 14.0,
+    font_size = 16.0,
     font = wezterm.font_with_fallback {
         'JetBrains Mono',
         'KoPubBatang_Pro',
         'JetBrainsMono Nerd Font Mono',
-        'Noto Serif CJK KR'
+        'Noto Serif KR'
     },
     adjust_window_size_when_changing_font_size = false,
     audible_bell = "Disabled",

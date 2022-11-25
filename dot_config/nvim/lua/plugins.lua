@@ -19,6 +19,7 @@ require('packer').startup(function()
     use 'hrsh7th/cmp-nvim-lsp-signature-help'
     use 'kdheepak/cmp-latex-symbols'
     use 'rafamadriz/friendly-snippets'
+    use 'molleweide/LuaSnip-snippets.nvim'
     --utils
     use 'jghauser/mkdir.nvim'
     use 'ethanholz/nvim-lastplace'

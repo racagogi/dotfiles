@@ -89,7 +89,7 @@ require("symbols-outline").setup({
     wrap                   = false,
     keymaps                = {
         close          = "q",
-        goto_location  = "<Cr>",
+        goto_location  = "<CR>",
         focus_location = "o",
         hover_symbol   = "<space>h",
         rename_symbol  = "<space>r",
@@ -139,6 +139,7 @@ require("nvim-tree").setup({
         , mappings = {
             custom_only = true
             , list = {
+                { key = "<CR>", action = "edit"},
                 { key = "R", action = "refresh" },
                 { key = "a", action = "create" },
                 { key = "d", action = "remove" },

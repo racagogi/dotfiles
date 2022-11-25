@@ -23,6 +23,7 @@ require 'nvim-treesitter.configs'.setup {
   },
   matchup = {
     enable = true,
+    disable = { "julia" }
   },
 }
 require('iswap').setup {
