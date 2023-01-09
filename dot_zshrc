@@ -25,7 +25,6 @@ plugins=(git poetry extract copyfile copypath fzf encode64 k zsh-interactive-cd 
 source $ZSH/oh-my-zsh.sh
 export LANG=ko_KR.UTF-8
 setxkbmap -option caps:escape
-setxkbmap -option korean:ralt_hangul,korean:rctrl_hanja
 export ARCHFLAGS="-arch x86_64"
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -40,7 +39,7 @@ alias cma="chezmoi apply"
 alias cme="chezmoi edit"
 alias rm="rm -rf"
 alias cp="cp -r"
-alias gc="google-chrome-stable"
+alias gc="git clone --depth 1"
 [[ ! -r /home/raca/.opam/opam-init/init.zsh ]] || source /home/raca/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
 [ -f "/home/raca/.ghcup/env" ] && source "/home/raca/.ghcup/env"
