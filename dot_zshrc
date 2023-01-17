@@ -44,6 +44,7 @@ alias gc="git clone --depth 1"
 
 [ -f "/home/raca/.ghcup/env" ] && source "/home/raca/.ghcup/env"
 xset -dpms
+xmodmap /home/raca/.xmonad/.Xmodmap
 xset s off
 swap ()
 {
