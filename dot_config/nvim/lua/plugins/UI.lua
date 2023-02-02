@@ -62,6 +62,9 @@ return {
         }
     },
     { 'nvim-tree/nvim-tree.lua',
+        dependencies = {
+            'nvim-tree/nvim-web-devicons'
+        },
         keys = { { '<F1>', ':NvimTreeToggle<CR>' } },
         opts = {
             disable_netrw = true
@@ -120,6 +123,7 @@ return {
         end
     },
     { 'ziontee113/icon-picker.nvim',
+        dependencies = { "stevearc/dressing.nvim" },
         opts = { disable_legacy_commands = true },
         keys = {
             { '<M-1>', '<cmd>IconPickerInsert<CR>' }
@@ -127,8 +131,11 @@ return {
     },
 
     { 'TimUntersberger/neogit',
-        keys = { { '<M-3>', '<cmd>Neogit<CR>' } },
-        opts = {
+        dependencies = {
+            'nvim-lua/plenary.nvim'
+        },
+        keys         = { { '<M-3>', '<cmd>Neogit<CR>' } },
+        opts         = {
             mappings = {
                 status = {
                     ["f"] = "PushPopup",

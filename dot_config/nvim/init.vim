@@ -34,19 +34,3 @@ autocmd BufNewFile,BufRead,BufReadPost *.rkt set filetype=racket
 map <F1> <Esc>
 imap <F1> <Esc>
 lua require 'bootstrap'
-set background=light
-colorscheme selenized
-highlight rainbowcol1 guifg=#cc1729
-highlight rainbowcol2 guifg=#bc5819
-highlight rainbowcol3 guifg=#a78300
-highlight rainbowcol4 guifg=#428b00
-highlight rainbowcol5 guifg=#006dce
-highlight rainbowcol6 guifg=#00978a
-highlight rainbowcol7 guifg=#825dc0
-highlight IndentBlanklineIndent1 guifg=#cc1729
-highlight IndentBlanklineIndent2 guifg=#bc5819
-highlight IndentBlanklineIndent3 guifg=#a78300
-highlight IndentBlanklineIndent4 guifg=#428b00
-highlight IndentBlanklineIndent5 guifg=#006dce
-highlight IndentBlanklineIndent6 guifg=#00978a
-highlight IndentBlanklineIndent7 guifg=#825dc0

@@ -3,7 +3,7 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         dependencies = {
-            'nvim-treesitter/nvim-treesitter-refactor',
+            "mrjones2014/nvim-ts-rainbow",
             'JoosepAlviste/nvim-ts-context-commentstring'
         },
         build = ":TSUpdate",
@@ -22,15 +22,25 @@ return {
                     node_decremental = "<M-d>",
                 },
             },
-            refactor = {
-                highlight_current_scope = { enable = true },
-            },
             matchup = {
                 enable = true,
             },
+            rainbow = {
+                enable = true,
+                extended_mode = true,
+            }
 
         },
         config = function(_, opts)
+            vim.cmd[[
+                    highlight rainbowcol1 guifg=#cc1729
+                    highlight rainbowcol2 guifg=#bc5819
+                    highlight rainbowcol3 guifg=#a78300
+                    highlight rainbowcol4 guifg=#428b00
+                    highlight rainbowcol5 guifg=#006dce
+                    highlight rainbowcol6 guifg=#00978a
+                    highlight rainbowcol7 guifg=#825dc0
+            ]]
             require("nvim-treesitter.configs").setup(opts)
         end,
     },
