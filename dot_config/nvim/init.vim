@@ -33,7 +33,7 @@ set mouse=
 autocmd BufNewFile,BufRead,BufReadPost *.rkt set filetype=racket
 map <F1> <Esc>
 imap <F1> <Esc>
-lua require 'plugins'
+lua require 'bootstrap'
 set background=light
 colorscheme selenized
 highlight rainbowcol1 guifg=#cc1729
