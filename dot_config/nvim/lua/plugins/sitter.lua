@@ -4,7 +4,8 @@ return {
         "nvim-treesitter/nvim-treesitter",
         dependencies = {
             "mrjones2014/nvim-ts-rainbow",
-            'JoosepAlviste/nvim-ts-context-commentstring'
+            'JoosepAlviste/nvim-ts-context-commentstring',
+            'windwp/nvim-ts-autotag'
         },
         build = ":TSUpdate",
         event = "BufReadPost",
@@ -13,6 +14,9 @@ return {
             indent = { enable = true },
             context_commentstring = { enable = true, enable_autocmd = false },
             ensure_installed = 'all',
+            autotag = {
+                enable = true
+            },
             sync_install = true,
             incremental_selection = {
                 enable = true,
@@ -32,15 +36,6 @@ return {
 
         },
         config = function(_, opts)
-            vim.cmd[[
-                    highlight rainbowcol1 guifg=#cc1729
-                    highlight rainbowcol2 guifg=#bc5819
-                    highlight rainbowcol3 guifg=#a78300
-                    highlight rainbowcol4 guifg=#428b00
-                    highlight rainbowcol5 guifg=#006dce
-                    highlight rainbowcol6 guifg=#00978a
-                    highlight rainbowcol7 guifg=#825dc0
-            ]]
             require("nvim-treesitter.configs").setup(opts)
         end,
     },
@@ -89,7 +84,7 @@ return {
             { "<M-n>", "<cmd>ISwapNodeWith<CR>" }
         },
         config = true
-    },{
+    }, {
         "sitiom/nvim-numbertoggle"
     }
 }

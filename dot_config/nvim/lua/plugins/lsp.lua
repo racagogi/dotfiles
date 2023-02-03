@@ -192,5 +192,17 @@ return {
             { "[d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts },
         },
         dependencies = { { "nvim-tree/nvim-web-devicons" } }
+    },
+    {
+        "folke/trouble.nvim",
+        dependencies = {
+            "nvim-tree/nvim-web-devicons"
+        },
+        keys = {
+            {"<space>t", "<cmd>TroubleToggle<cr>"},
+        },
+        config = function()
+            require("trouble").setup {}
+        end
     }
 }

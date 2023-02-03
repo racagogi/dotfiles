@@ -39,8 +39,7 @@ return {
     { 'kylechui/nvim-surround', config = true },
     { 'junegunn/vim-easy-align',
         keys = {
-            { "<M-a>", '<Plug>(EasyAlign)', mode = 'n', },
-            { "<M-a>", '<Plug>(EasyAlign)', mode = 'x', }
+            {mode={"o", "v","n"}, "<M-a>","<Plug>(EasyAlign)"},
         }
     },
     {
