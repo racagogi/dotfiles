@@ -89,5 +89,7 @@ return {
             { "<M-n>", "<cmd>ISwapNodeWith<CR>" }
         },
         config = true
+    },{
+        "sitiom/nvim-numbertoggle"
     }
 }

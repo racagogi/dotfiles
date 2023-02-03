@@ -1,6 +1,9 @@
 return {
     {
         "nvim-telescope/telescope.nvim",
+        dependencies = {
+            'nvim-tree/nvim-web-devicons'
+        },
         cmd = "Telescope",
         keys = {
             { "<leader>h", "<cmd>Telescope command_history<cr>", desc = "Command History" },

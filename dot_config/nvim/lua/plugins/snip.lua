@@ -110,6 +110,17 @@ return {
                     }, {
                         { name = 'buffer' },
                     })
+                }),
+                cmp.setup.filetype('norg', {
+                    sources = cmp.config.sources({
+                        { name = "nvim_lsp" },
+                        { name = "luasnip" },
+                        { name = "buffer" },
+                        { name = 'calc' },
+                        { name = "path" },
+                        { name = 'luasnip_choice' },
+                        { name = "neorg" },
+                    })
                 })
         end,
     }
