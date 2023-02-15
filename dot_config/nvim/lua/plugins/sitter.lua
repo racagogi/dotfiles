@@ -86,5 +86,7 @@ return {
         config = true
     }, {
         "sitiom/nvim-numbertoggle"
+    }, {
+        'gpanders/nvim-parinfer'
     }
 }

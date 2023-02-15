@@ -1,0 +1,4 @@
+export LANG=ko_KR.UTF-8
+export ARCHFLAGS="-arch x86_64"
+xset -dpms
+xset s off
