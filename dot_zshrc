@@ -13,6 +13,7 @@ HIST_STAMPS="yyyy/mm/dd"
 
 plugins=(git poetry extract copyfile copypath fzf encode64 k zsh-interactive-cd zsh-syntax-highlighting zsh-autosuggestions)
 
+
 source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
