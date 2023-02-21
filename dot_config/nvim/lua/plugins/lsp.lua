@@ -23,7 +23,7 @@ local servers = {
     "rust_analyzer",
     "sorbet",
     "svelte",
-    "sumneko_lua",
+    "lua_ls",
     "taplo",
     "tailwindcss",
     "texlab",
@@ -64,7 +64,7 @@ return {
             require("mason-lspconfig").setup()
             local lspconfig = require("lspconfig")
             for _, server in ipairs(servers) do
-                if server == "sumneko_lua" then
+                if server == "lua_ls" then
                     lspconfig[server].setup({
                         capabilities = capabilities,
                         on_attach = on_attach,
