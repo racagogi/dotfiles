@@ -57,8 +57,8 @@ return {
                         }),
                     },
                     mapping = cmp.mapping.preset.insert({
-                        ['<C-d>'] = cmp.mapping.scroll_docs( -4), -- Up
-                        ['<C-f>'] = cmp.mapping.scroll_docs(4), -- Down
+                        ['<C-d>'] = cmp.mapping.scroll_docs(-4), -- Up
+                        ['<C-f>'] = cmp.mapping.scroll_docs(4),  -- Down
                         ['<C-Space>'] = cmp.mapping.complete(),
                         ['<CR>'] = cmp.mapping.confirm {
                             behavior = cmp.ConfirmBehavior.Replace,
@@ -76,8 +76,8 @@ return {
                         ['<S-Tab>'] = cmp.mapping(function(fallback)
                             if cmp.visible() then
                                 cmp.select_prev_item()
-                            elseif luasnip.jumpable( -1) then
-                                luasnip.jump( -1)
+                            elseif luasnip.jumpable(-1) then
+                                luasnip.jump(-1)
                             else
                                 fallback()
                             end
@@ -92,17 +92,24 @@ return {
                         { name = 'luasnip_choice' },
                         { name = 'latex_symbols' },
                         { name = 'git' },
-                        { name = 'treesitter' }
+                        { name = 'treesitter' },
                     }),
                 },
                 cmp.setup.filetype('zsh', {
                     sources = cmp.config.sources({
                         { name = 'zsh' },
                         { name = 'buffer' },
-                        { name = 'buffer' },
                         { name = "nvim_lsp" },
                         { name = "luasnip" },
 
+                    })
+                })
+                ,
+                cmp.setup.filetype('toml', {
+                    sources = cmp.config.sources({
+                        { name = 'buffer' },
+                        { name = "nvim_lsp" },
+                        { name = "crates" }
                     })
                 })
         end,

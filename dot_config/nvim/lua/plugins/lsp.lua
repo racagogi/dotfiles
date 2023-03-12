@@ -10,6 +10,7 @@ local servers = {
     "gopls",
     "hls",
     "html",
+    "idris2_lsp",
     "jdtls",
     "jsonls",
     "julials",
@@ -17,7 +18,7 @@ local servers = {
     "marksman",
     "metals",
     "omnisharp",
-    "ocamllsp",
+    "prolog_ls",
     "pyright",
     "racket_langserver",
     "rust_analyzer",
@@ -31,6 +32,7 @@ local servers = {
     "volar",
     "vimls",
     "yamlls",
+    "zls"
 }
 local opts = { noremap = true, silent = true }
 return {
@@ -182,14 +184,14 @@ return {
             })
         end,
         keys = {
-            { "<space>a", "<cmd>Lspsaga code_action<CR>", opts },
-            { "<space>n", "<cmd>Lspsaga rename<CR>", opts },
-            { "<space>h", "<cmd>Lspsaga hover_doc<CR>", opts },
-            { "<space>d", "<cmd>Lspsaga peek_definition<CR>", opts },
-            { "<space>D", "<cmd>Lspsaga goto_definition<CR>", opts },
-            { "<space>s", "<cmd>Lspsaga lsp_finder<CR>", opts },
-            { "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts },
-            { "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts },
+            { "<space>a", "<cmd>Lspsaga code_action<CR>",          opts },
+            { "<space>n", "<cmd>Lspsaga rename<CR>",               opts },
+            { "<space>h", "<cmd>Lspsaga hover_doc<CR>",            opts },
+            { "<space>d", "<cmd>Lspsaga peek_definition<CR>",      opts },
+            { "<space>D", "<cmd>Lspsaga goto_definition<CR>",      opts },
+            { "<space>s", "<cmd>Lspsaga lsp_finder<CR>",           opts },
+            { "[d",       "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts },
+            { "]d",       "<cmd>Lspsaga diagnostic_jump_next<CR>", opts },
         },
         dependencies = { { "nvim-tree/nvim-web-devicons" } }
     },
@@ -199,7 +201,7 @@ return {
             "nvim-tree/nvim-web-devicons"
         },
         keys = {
-            {"<space>t", "<cmd>TroubleToggle<cr>"},
+            { "<space>t", "<cmd>TroubleToggle<cr>" },
         },
         config = function()
             require("trouble").setup {}
