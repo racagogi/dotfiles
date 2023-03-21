@@ -17,6 +17,7 @@ local servers = {
     "kotlin_language_server",
     "marksman",
     "metals",
+    "ocamllsp",
     "omnisharp",
     "prolog_ls",
     "pyright",
@@ -52,15 +53,25 @@ return {
         event = "BufRead",
         dependencies = {
             'ray-x/lsp_signature.nvim',
+            "folke/neodev.nvim",
+            "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
         },
         config = function()
+            require("neodev").setup({})
+            require("lsp_lines").setup()
             local capabilities = vim.lsp.protocol.make_client_capabilities()
             capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-            local signature_setup = {
-                hint_prefix = ""
-            }
+            vim.diagnostic.config({
+                virtual_text = false,
+            })
             local on_attach = function(_, bufnr)
-                require "lsp_signature".on_attach(signature_setup, bufnr)
+                require "lsp_signature".on_attach({
+                    bind = true,
+                    hint_prefix = "𝚪 ",
+                    handler_opts = {
+                        border = "rounded",
+                    }
+                }, bufnr)
             end
             require("mason").setup()
             require("mason-lspconfig").setup()
@@ -78,6 +89,12 @@ return {
                             },
                         },
                     })
+                elseif server == "elixirls" then
+                    lspconfig[server].setup({
+                        cmd = { "/home/raca/.local/share/nvim/mason/packages/elixir-ls/language_server.sh" },
+                        on_attach = on_attach,
+                        capabilities = capabilities,
+                    })
                 else
                     lspconfig[server].setup({
                         capabilities = capabilities,
@@ -93,6 +110,7 @@ return {
                     vim.lsp.buf.format({ async = true })
                 end,
                 opts,
+                desc = "formatting"
             },
         },
     },
@@ -127,7 +145,6 @@ return {
                     null_ls.builtins.diagnostics.markdownlint,
                     null_ls.builtins.formatting.markdownlint,
                     null_ls.builtins.formatting.cbfmt,
-                    null_ls.builtins.diagnostics.vale,
                     null_ls.builtins.formatting.black,
                     null_ls.builtins.diagnostics.pylint,
                     null_ls.builtins.diagnostics.vulture,
@@ -184,14 +201,14 @@ return {
             })
         end,
         keys = {
-            { "<space>a", "<cmd>Lspsaga code_action<CR>",          opts },
-            { "<space>n", "<cmd>Lspsaga rename<CR>",               opts },
-            { "<space>h", "<cmd>Lspsaga hover_doc<CR>",            opts },
-            { "<space>d", "<cmd>Lspsaga peek_definition<CR>",      opts },
-            { "<space>D", "<cmd>Lspsaga goto_definition<CR>",      opts },
-            { "<space>s", "<cmd>Lspsaga lsp_finder<CR>",           opts },
-            { "[d",       "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts },
-            { "]d",       "<cmd>Lspsaga diagnostic_jump_next<CR>", opts },
+            { "<space>a", "<cmd>Lspsaga code_action<CR>",          opts, desc = "code action" },
+            { "<space>n", "<cmd>Lspsaga rename<CR>",               opts, desc = "rename" },
+            { "<space>h", "<cmd>Lspsaga hover_doc<CR>",            opts, desc = "hover doc" },
+            { "<space>d", "<cmd>Lspsaga peek_definition<CR>",      opts, desc = "view defintion" },
+            { "<space>D", "<cmd>Lspsaga goto_definition<CR>",      opts, desc = "go defintion" },
+            { "<space>s", "<cmd>Lspsaga lsp_finder<CR>",           opts, desc = "search" },
+            { "[d",       "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts, desc = "diagnostic_jump_prev" },
+            { "]d",       "<cmd>Lspsaga diagnostic_jump_next<CR>", opts, desc = "diagnostic_jump_next" },
         },
         dependencies = { { "nvim-tree/nvim-web-devicons" } }
     },
@@ -201,7 +218,7 @@ return {
             "nvim-tree/nvim-web-devicons"
         },
         keys = {
-            { "<space>t", "<cmd>TroubleToggle<cr>" },
+            { "<space>t", "<cmd>TroubleToggle<cr>", desc = "show trouble" },
         },
         config = function()
             require("trouble").setup {}

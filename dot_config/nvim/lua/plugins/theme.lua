@@ -1,21 +1,21 @@
 return {
-    {
-        "loganswartz/selenized.nvim",
-        dependencies = {
-            "rktjmp/lush.nvim",
-        },
-        config = function()
-            vim.cmd([[
-            set background=light
-            colorscheme selenized]])
-        end,
-    },
+    -- {
+    --     "loganswartz/selenized.nvim",
+    --     dependencies = {
+    --         "rktjmp/lush.nvim",
+    --     },
+    --     config = function()
+    --         vim.cmd([[
+    --         set background=light
+    --         colorscheme selenized]])
+    --     end,
+    -- },
     -- {
     --     'folke/tokyonight.nvim',
     --     config = function()
     --         require("tokyonight").setup({
-    --             style = "storm",
-    --             transparent = true,
+    --             style = "night",
+    --             -- transparent = true,
     --             terminal_colors = true,
     --             styles = {
     --                 comments = { italic = true },
@@ -64,7 +64,39 @@ return {
     --         vim.cmd [[colorscheme tokyonight]]
     --     end
     -- },
-    { "norcalli/nvim-colorizer.lua",
+    {
+        "ellisonleao/gruvbox.nvim",
+        config = function()
+            require("gruvbox").setup({
+                undercurl = true,
+                underline = true,
+                bold = true,
+                italic = {
+                    strings = true,
+                    comments = true,
+                    operators = false,
+                    folds = true,
+                },
+                strikethrough = true,
+                invert_selection = false,
+                invert_signs = false,
+                invert_tabline = false,
+                invert_intend_guides = false,
+                inverse = true,    -- invert background for search, diffs, statuslines and errors
+                contrast = "soft", -- can be "hard", "soft" or empty string
+                palette_overrides = {},
+                overrides = {},
+                dim_inactive = false,
+                transparent_mode = false,
+            })
+            vim.cmd [[
+            set background=light
+            colorscheme gruvbox
+            ]]
+        end
+    },
+    {
+        "norcalli/nvim-colorizer.lua",
         config = function()
             require("colorizer").setup({ "*" }, {
                 RGB      = true,
@@ -76,18 +108,20 @@ return {
                 css      = true,
                 css_fn   = true,
             })
-        end },
-    { "lukas-reineke/indent-blankline.nvim",
+        end
+    },
+    {
+        "lukas-reineke/indent-blankline.nvim",
         config = function()
-            vim.cmd [[highlight IndentBlanklineIndent1 guifg=#c00221 gui=nocombine]]
-            vim.cmd [[highlight IndentBlanklineIndent2 guifg=#b04713 gui=nocombine]]
-            vim.cmd [[highlight IndentBlanklineIndent3 guifg=#9b7600 gui=nocombine]]
-            vim.cmd [[highlight IndentBlanklineIndent4 guifg=#3f8100 gui=nocombine]]
-            vim.cmd [[highlight IndentBlanklineIndent5 guifg=#005dcc gui=nocombine]]
-            vim.cmd [[highlight IndentBlanklineIndent6 guifg=#714cbc gui=nocombine]]
+            vim.cmd [[highlight IndentBlanklineIndent1 guifg=#cc241d gui=nocombine]]
+            vim.cmd [[highlight IndentBlanklineIndent2 guifg=#d65d0e gui=nocombine]]
+            vim.cmd [[highlight IndentBlanklineIndent3 guifg=#d79921 gui=nocombine]]
+            vim.cmd [[highlight IndentBlanklineIndent4 guifg=#98971a gui=nocombine]]
+            vim.cmd [[highlight IndentBlanklineIndent5 guifg=#458588 gui=nocombine]]
+            vim.cmd [[highlight IndentBlanklineIndent6 guifg=#b16286 gui=nocombine]]
             require("indent_blankline").setup {
-                show_current_context       = true,
-                show_current_context_start = true,
+                -- show_current_context       = true,
+                -- show_current_context_start = true,
                 char_highlight_list        = {
                     "IndentBlanklineIndent1",
                     "IndentBlanklineIndent2",
@@ -99,166 +133,11 @@ return {
             }
         end
     },
-    { "winston0410/range-highlight.nvim",
+    {
+        "winston0410/range-highlight.nvim",
         dependencies = {
             "winston0410/cmd-parser.nvim"
         },
-        config = true },
-    --[[ {
-        "folke/noice.nvim",
-        config = function()
-            require("noice").setup({
-                cmdline = {
-                    enabled = true,
-                    view = "cmdline_popup",
-                    opts = {},
-                    format = {
-                        cmdline = { pattern = "^:", icon = "", lang = "vim" },
-                        search_down = { kind = "search", pattern = "^/", icon = " ", lang = "regex" },
-                        search_up = { kind = "search", pattern = "^%?", icon = " ", lang = "regex" },
-                        filter = { pattern = "^:%s*!", icon = "$", lang = "bash" },
-                        lua = { pattern = "^:%s*lua%s+", icon = "", lang = "lua" },
-                        help = { pattern = "^:%s*he?l?p?%s+", icon = "" },
-                        input = {}, -- Used by input()
-                    },
-                },
-                messages = {
-
-                    enabled = true,
-                    view = "notify",
-                    view_error = "notify",
-                    view_warn = "notify",
-                    view_history = "messages",
-                    view_search = "virtualtext",
-                },
-                popupmenu = {
-                    enabled = true,
-                    backend = "nui",
-                    kind_icons = {},
-                },
-                redirect = {
-                    view = "popup",
-                    filter = { event = "msg_show" },
-                },
-                commands = {
-                    history = {
-                        view = "split",
-                        opts = { enter = true, format = "details" },
-                        filter = {
-                            any = {
-                                { event = "notify" },
-                                { error = true },
-                                { warning = true },
-                                { event = "msg_show", kind = { "" } },
-                                { event = "lsp", kind = "message" },
-                            },
-                        },
-                    },
-                    last = {
-                        view = "popup",
-                        opts = { enter = true, format = "details" },
-                        filter = {
-                            any = {
-                                { event = "notify" },
-                                { error = true },
-                                { warning = true },
-                                { event = "msg_show", kind = { "" } },
-                                { event = "lsp", kind = "message" },
-                            },
-                        },
-                        filter_opts = { count = 1 },
-                    },
-                    errors = {
-                        view = "popup",
-                        opts = { enter = true, format = "details" },
-                        filter = { error = true },
-                        filter_opts = { reverse = true },
-                    },
-                },
-                notify = {
-                    enabled = true,
-                    view = "notify",
-                },
-                lsp = {
-                    progress = {
-                        enabled = true,
-                        format = "lsp_progress",
-                        format_done = "lsp_progress_done",
-                        throttle = 1000 / 30,
-                        view = "mini",
-                    },
-                    override = {
-                        ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-                        ["vim.lsp.util.stylize_markdown"] = true,
-                        ["cmp.entry.get_documentation"] = true,
-                    },
-                    hover = {
-                        enabled = true,
-                        view = nil,
-                        opts = {},
-                    },
-                    signature = {
-                        enabled = false,
-                    },
-                    message = {
-                        enabled = true,
-                        view = "notify",
-                        opts = {},
-                    },
-                    documentation = {
-                        view = "hover",
-                        opts = {
-                            lang = "markdown",
-                            replace = true,
-                            render = "plain",
-                            format = { "{message}" },
-                            win_options = { concealcursor = "n", conceallevel = 3 },
-                        },
-                    },
-                },
-                markdown = {
-                    hover = {
-                        ["|(%S-)|"] = vim.cmd.help,
-                        ["%[.-%]%((%S-)%)"] = require("noice.util").open,
-                    },
-                    highlights = {
-                        ["|%S-|"] = "@text.reference",
-                        ["@%S+"] = "@parameter",
-                        ["^%s*(Parameters:)"] = "@text.title",
-                        ["^%s*(Return:)"] = "@text.title",
-                        ["^%s*(See also:)"] = "@text.title",
-                        ["{%S-}"] = "@parameter",
-                    },
-                },
-                health = {
-                    checker = true,
-                },
-                smart_move = {
-
-                    enabled = true,
-
-                    excluded_filetypes = { "cmp_menu", "cmp_docs", "notify" },
-                },
-                presets = {
-                    bottom_search = false,
-                    command_palette = false,
-                    long_message_to_split = false,
-                    inc_rename = false,
-                    lsp_doc_border = false,
-                },
-                throttle = 1000 / 30,
-                views = {},
-                routes = {},
-                status = {},
-                format = {},
-            })
-        end,
-        dependencies = {
-            "MunifTanjim/nui.nvim",
-            "rcarriga/nvim-notify",
-            config = function()
-
-            end
-        }
-    } ]]
+        config = true
+    },
 }

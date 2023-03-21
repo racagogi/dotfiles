@@ -113,5 +113,15 @@ return {
                     })
                 })
         end,
+    },
+    {
+        'protex/better-digraphs.nvim',
+        config = function()
+            vim.cmd [[
+            inoremap <C-d> <Cmd>lua require'better-digraphs'.digraphs("insert")<CR>
+            nnoremap <C-d> <Cmd>lua require'better-digraphs'.digraphs("normal")<CR>
+            vnoremap <C-d> <ESC><Cmd>lua require'better-digraphs'.digraphs("visual")<CR>
+            ]]
+        end
     }
 }

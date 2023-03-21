@@ -6,3 +6,5 @@ killall -q polybar &
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 polybar -q main -c /home/raca/.xmonad/polybar/config.ini&
 kmonad $HOME/.kmonad.kbd
+xinput set-int-prop 22 "Device Enabled" 8 0
+xinput set-int-prop 21 "Device Enabled" 8 0

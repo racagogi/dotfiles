@@ -1,6 +1,7 @@
 return {
-    { 'simrat39/symbols-outline.nvim',
-        keys = { { '<F2>', ':SymbolsOutline<CR>' } },
+    {
+        'simrat39/symbols-outline.nvim',
+        keys = { { '<F2>', ':SymbolsOutline<CR>', desc = "symbols outline" } },
         opts = {
             highlight_hovered_item = false,
             show_guides            = true,
@@ -61,58 +62,66 @@ return {
             }
         }
     },
-    { 'nvim-tree/nvim-tree.lua',
+    {
+        'nvim-tree/nvim-tree.lua',
         dependencies = {
             'nvim-tree/nvim-web-devicons'
         },
-        keys = { { '<F1>', ':NvimTreeToggle<CR>' } },
+        keys = { { '<F1>', ':NvimTreeToggle<CR>', desc = "nvim tree" } },
         opts = {
             disable_netrw = true
-            , hijack_unnamed_buffer_when_opening = true
-            , remove_keymaps = true,
+            ,
+            hijack_unnamed_buffer_when_opening = true
+            ,
+            remove_keymaps = true,
             view = {
                 number = false
-                , mappings = {
+                ,
+                mappings = {
                     custom_only = true
-                    , list = {
+                    ,
+                    list = {
                         { key = "<CR>", action = "edit" },
-                        { key = "R", action = "refresh" },
-                        { key = "a", action = "create" },
-                        { key = "d", action = "remove" },
-                        { key = "r", action = "rename" },
-                        { key = "x", action = "cut" },
-                        { key = "c", action = "copy" },
-                        { key = "p", action = "paste" },
-                        { key = "y", action = "copy_absolute_path" },
-                        { key = "q", action = "close" },
-                        { key = "zc", action = "collapse_all" },
-                        { key = "zR", action = "expand_all" },
-                        { key = "i", action = "toggle_file_info" },
+                        { key = "R",    action = "refresh" },
+                        { key = "a",    action = "create" },
+                        { key = "d",    action = "remove" },
+                        { key = "r",    action = "rename" },
+                        { key = "x",    action = "cut" },
+                        { key = "c",    action = "copy" },
+                        { key = "p",    action = "paste" },
+                        { key = "y",    action = "copy_absolute_path" },
+                        { key = "q",    action = "close" },
+                        { key = "zc",   action = "collapse_all" },
+                        { key = "zR",   action = "expand_all" },
+                        { key = "i",    action = "toggle_file_info" },
                     }
                 }
             }
-
         }
     },
-    { 'hkupty/iron.nvim',
-        keys = { { '<F3>', '<cmd>IronRepl<cr>' } },
+    {
+        'hkupty/iron.nvim',
+        keys = { { '<F4>', '<cmd>IronRepl<cr>', desc = "repl" } },
         config = function()
             require("iron.core").setup {
                 config = {
                     scratch_repl = true,
-                    repl_definition = { sh = {
-                        command = { "zsh" }
-                    }
-                        , lua = {
+                    repl_definition = {
+                        sh = {
+                            command = { "zsh" }
+                        }
+                        ,
+                        lua = {
                             command = { "luajit" }
                         }
-                    }, repl_open_cmd = require('iron.view').split.vertical.botright("50%")
+                    },
+                    repl_open_cmd = require('iron.view').split.vertical.botright("50%")
                 },
                 keymaps = {
-                    send_motion = "gm",
-                    visual_send = "gv",
-                    send_file = "gf",
-                    send_line = "gl",
+                    send_motion = "<leader>m",
+                    visual_send = "<Leader>v",
+                    send_file = "<Leader>f",
+                    send_line = "<Leader>l",
                     exit = "<Leader>q",
                     clear = "<Leader>c",
                 },
@@ -122,19 +131,21 @@ return {
             }
         end
     },
-    { 'ziontee113/icon-picker.nvim',
+    {
+        'ziontee113/icon-picker.nvim',
         dependencies = { "stevearc/dressing.nvim" },
         opts = { disable_legacy_commands = true },
         keys = {
-            { '<M-1>', '<cmd>IconPickerInsert<CR>' }
+            { '<M-1>', '<cmd>IconPickerInsert<CR>', mode = { "n", "i" }, desc = "icon picker" }
         }
     },
 
-    { 'TimUntersberger/neogit',
+    {
+        'TimUntersberger/neogit',
         dependencies = {
             'nvim-lua/plenary.nvim'
         },
-        keys         = { { '<M-3>', '<cmd>Neogit<CR>' } },
+        keys         = { { '<F3>', '<cmd>Neogit<CR>', desc = "neogit" } },
         opts         = {
             mappings = {
                 status = {
