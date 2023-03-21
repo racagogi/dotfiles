@@ -37,7 +37,7 @@ return {
         'phaazon/mind.nvim',
         keys = {
             { "gm", ":lua require 'mind'.open_main()<cr>",    desc = "open main" },
-            { "gp", ":lua require 'mind'.open_project()<cr>", desc = "open local" },
+            { "gp", ":lua require 'mind'.open_project(true)<cr>", desc = "open local" },
             { "gc", ":lua require 'mind'.close() <cr>" },
         },
         config = function()
@@ -63,7 +63,9 @@ return {
             end)
             require 'mind'.setup({
                 edit = {
-                    data_extension = ".norg"
+                    data_extension = ".norg",
+                    data_header = "* %s",
+                    copy_link_format = "[]{%s}"
                 },
                 keymaps = {
                     normal = {
