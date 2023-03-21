@@ -31,6 +31,7 @@ set termguicolors
 set shell=zsh
 set mouse=
 autocmd BufNewFile,BufRead,BufReadPost *.rkt set filetype=racket
+autocmd BufNewFile,BufRead,BufReadPost *.prolog set filetype=prolog
 map <F1> <Esc>
 imap <F1> <Esc>
 lua require 'bootstrap'
