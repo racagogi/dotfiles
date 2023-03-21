@@ -153,6 +153,11 @@ return {
                     ["P"] = "",
                 }
             }
-        }
+        },
+        config       = function()
+            vim.cmd [[hi NeogitNotificationInfo guifg=#98971a]]
+            vim.cmd [[hi NeogitNotificationWarning guifg=#d79921]]
+            vim.cmd [[hi NeogitNotificationError guifg=#cc241d]]
+        end
     }
 }

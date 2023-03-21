@@ -119,9 +119,14 @@ return {
             vim.cmd [[highlight IndentBlanklineIndent4 guifg=#98971a gui=nocombine]]
             vim.cmd [[highlight IndentBlanklineIndent5 guifg=#458588 gui=nocombine]]
             vim.cmd [[highlight IndentBlanklineIndent6 guifg=#b16286 gui=nocombine]]
+            vim.cmd [[highlight IndentBlanklineSpaceCharBlankline guifg=#076678 gui=nocombine]]
+            vim.cmd [[highlight IndentBlanklineSpaceChar guifg=#076678 gui=nocombine]]
+            vim.cmd [[highlight IndentBlanklineChar guifg=#076678 gui=nocombine]]
+            vim.cmd [[highlight IndentBlanklineContextChar guifg=#427b58 gui=nocombine]]
+
             require("indent_blankline").setup {
-                -- show_current_context       = true,
-                -- show_current_context_start = true,
+                show_current_context       = true,
+                show_current_context_start = true,
                 char_highlight_list        = {
                     "IndentBlanklineIndent1",
                     "IndentBlanklineIndent2",
