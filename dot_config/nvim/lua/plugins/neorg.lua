@@ -36,15 +36,18 @@ return {
     {
         'phaazon/mind.nvim',
         keys = {
-            { "gm", ":lua require 'mind'.open_main()<cr>",    desc = "open main" },
+            { "gm", ":lua require 'mind'.open_main()<cr>",        desc = "open main" },
             { "gp", ":lua require 'mind'.open_project(true)<cr>", desc = "open local" },
             { "gc", ":lua require 'mind'.close() <cr>" },
         },
         config = function()
             vim.keymap.set({ 'n' }, 'gs', function()
-                require 'mind'.wrap_smart_project_tree_fn(function(args)
-                    require 'mind.commands'.open_data_index(args.get_tree(), args.data_dir, args.save_tree, args.opts)
-                end)
+                require 'mind'.wrap_project_tree_fn(
+                    function(args)
+                        require 'mind.commands'.open_data_index(args.get_tree(), args.data_dir, args.save_tree, args
+                        .opts)
+                    end,
+                    true)
             end)
             vim.keymap.set({ 'n' }, 'gS', function()
                 require 'mind'.wrap_main_tree_fn(function(args)
@@ -52,9 +55,11 @@ return {
                 end)
             end)
             vim.keymap.set({ 'n' }, 'gl', function()
-                require 'mind'.wrap_smart_project_tree_fn(function(args)
-                    require 'mind.commands'.copy_node_link_index(args.get_tree(), "+", args.opts)
-                end)
+                require 'mind'.wrap_project_tree_fn(
+                    function(args)
+                        require 'mind.commands'.copy_node_link_index(args.get_tree(), "+", args.opts)
+                    end,
+                    true)
             end)
             vim.keymap.set({ 'n' }, 'gL', function()
                 require 'mind'.wrap_main_tree_fn(function(args)
@@ -74,7 +79,7 @@ return {
                         ["<tab>"] = "toggle_node",
                         ["<s-tab>"] = "toggle_node",
                         ["/"] = "select_path",
-                        ["s"] = "change_icon_menu",
+                        ["m"] = "change_icon_menu",
                         c = "add_inside_end_index",
                         I = "add_inside_start",
                         i = "add_inside_end",
@@ -88,7 +93,7 @@ return {
                         r = "rename",
                         R = "change_icon",
                         u = "make_url",
-                        x = "select",
+                        s = "select",
                         t = function(args)
                             require 'mind.ui'.with_cursor(function(line)
                                 local tree = args.get_tree()

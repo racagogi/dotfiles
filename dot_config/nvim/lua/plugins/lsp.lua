@@ -112,6 +112,72 @@ return {
                 opts,
                 desc = "formatting"
             },
+            {
+                "<space>a",
+                function()
+                    vim.lsp.buf.code_action()
+                end,
+                opts,
+                desc = "code action"
+            },
+            {
+                "<space>n",
+                function()
+                    vim.lsp.buf.rename()
+                end
+                ,
+                opts,
+                desc = "rename"
+            },
+            {
+                "<space>h",
+                function()
+                    vim.lsp.buf.hover()
+                end,
+                opts,
+                desc = "hover doc"
+            },
+            {
+                "<space>d",
+                function()
+                    vim.lsp.buf.definition()
+                end,
+                opts,
+                desc = "view defintion"
+            },
+            {
+                "<space>D",
+                function()
+                    vim.lsp.buf.declaration()
+                end,
+                opts,
+                desc = "go defintion"
+            },
+            {
+                "<space>s",
+                function()
+                    vim.lsp.buf.signature_help()
+                end,
+                opts,
+                desc = "search"
+            },
+            {
+                "[d",
+                function()
+                    vim.diagnostic.goto_prev({})
+                end,
+                opts,
+                desc = "diagnostic_jump_prev"
+            },
+            {
+                "]d",
+                function()
+                    vim.diagnostic.goto_next({})
+                end,
+                opts,
+                desc = "diagnostic_jump_next"
+            },
+
         },
     },
     {
@@ -158,59 +224,13 @@ return {
                             group = augroup,
                             buffer = bufnr,
                             callback = function()
-                                vim.lsp.buf.formatting_sync()
+                                vim.lsp.buf.formatting_sync({}, 100)
                             end,
                         })
                     end
                 end,
             })
         end,
-    },
-    {
-        "glepnir/lspsaga.nvim",
-        event = "BufRead",
-        config = function()
-            require("lspsaga").setup({
-                beacon = {
-                    enable = false,
-                },
-                ui = {
-                    theme = "round",
-                    title = true,
-                    border = "rounded",
-                    winblend = 0,
-                    expand = "",
-                    collapse = "",
-                    preview = " ",
-                    code_action = "💡",
-                    diagnostic = "🐞",
-                    incoming = " ",
-                    outgoing = " ",
-                    hover = ' ',
-                    kind = {},
-                },
-                symbol_in_winbar = {
-                    enable = false,
-                    separator = " ",
-                    hide_keyword = true,
-                    show_file = true,
-                    folder_level = 2,
-                    respect_root = false,
-                    color_mode = true,
-                },
-            })
-        end,
-        keys = {
-            { "<space>a", "<cmd>Lspsaga code_action<CR>",          opts, desc = "code action" },
-            { "<space>n", "<cmd>Lspsaga rename<CR>",               opts, desc = "rename" },
-            { "<space>h", "<cmd>Lspsaga hover_doc<CR>",            opts, desc = "hover doc" },
-            { "<space>d", "<cmd>Lspsaga peek_definition<CR>",      opts, desc = "view defintion" },
-            { "<space>D", "<cmd>Lspsaga goto_definition<CR>",      opts, desc = "go defintion" },
-            { "<space>s", "<cmd>Lspsaga lsp_finder<CR>",           opts, desc = "search" },
-            { "[d",       "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts, desc = "diagnostic_jump_prev" },
-            { "]d",       "<cmd>Lspsaga diagnostic_jump_next<CR>", opts, desc = "diagnostic_jump_next" },
-        },
-        dependencies = { { "nvim-tree/nvim-web-devicons" } }
     },
     {
         "folke/trouble.nvim",

@@ -65,6 +65,7 @@
         "/home/raca/.local/share/nvim/lazy/tree-climber.nvim/lua",
         "/home/raca/.local/share/nvim/lazy/mkdir.nvim/lua",
         "/home/raca/.config/nvim/lua",
+        "${3rd}/luv/library",
         "${3rd}/luv/library"
     ]
 }

@@ -47,10 +47,10 @@ return {
     {
         'drybalka/tree-climber.nvim',
         keys = {
-            { mode = { 'n', 'v', 'o' }, '<M-h>', "<cmd>lua require('tree-climber').goto_parent()<cr>", keyopts },
-            { mode = { 'n', 'v', 'o' }, '<M-l>', "<cmd>lua require('tree-climber').goto_child()<cr>",  keyopts },
-            { mode = { 'n', 'v', 'o' }, '<M-j>', "<cmd>lua require('tree-climber').goto_next()<cr>",   keyopts },
-            { mode = { 'n', 'v', 'o' }, '<M-k>', "<cmd>lua require('tree-climber').goto_prev()<cr>",   keyopts },
+            { mode = { 'n', 'v', 'o' }, '<M-k>', "<cmd>lua require('tree-climber').goto_parent()<cr>", keyopts },
+            { mode = { 'n', 'v', 'o' }, '<M-j>', "<cmd>lua require('tree-climber').goto_child()<cr>",  keyopts },
+            { mode = { 'n', 'v', 'o' }, '<M-l>', "<cmd>lua require('tree-climber').goto_next()<cr>",   keyopts },
+            { mode = { 'n', 'v', 'o' }, '<M-h>', "<cmd>lua require('tree-climber').goto_prev()<cr>",   keyopts },
         }
     },
     {

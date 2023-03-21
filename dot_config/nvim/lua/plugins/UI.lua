@@ -139,25 +139,24 @@ return {
             { '<M-1>', '<cmd>IconPickerInsert<CR>', mode = { "n", "i" }, desc = "icon picker" }
         }
     },
-
     {
         'TimUntersberger/neogit',
         dependencies = {
             'nvim-lua/plenary.nvim'
         },
         keys         = { { '<F3>', '<cmd>Neogit<CR>', desc = "neogit" } },
-        opts         = {
-            mappings = {
-                status = {
-                    ["f"] = "PushPopup",
-                    ["P"] = "",
-                }
-            }
-        },
         config       = function()
             vim.cmd [[hi NeogitNotificationInfo guifg=#98971a]]
             vim.cmd [[hi NeogitNotificationWarning guifg=#d79921]]
             vim.cmd [[hi NeogitNotificationError guifg=#cc241d]]
+            require("neogit").setup {
+                mappings = {
+                    status = {
+                        ["f"] = "PushPopup",
+                        ["P"] = "",
+                    }
+                }
+            }
         end
     }
 }
