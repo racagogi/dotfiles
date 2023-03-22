@@ -1,8 +1,8 @@
 local wezterm = require "wezterm"
 local colors, _ = wezterm.color.load_scheme("/home/raca/.config/wezterm/selenized-light.toml")
 return {
-    colors = colors,
-    -- color_scheme = "tokyonight-storm",
+    -- colors = colors,
+    color_scheme = "Gruvbox light, soft (base16)",
     check_for_updates = false,
     font_size = 16.0,
     font = wezterm.font_with_fallback {
