@@ -45,7 +45,7 @@ return {
                 require 'mind'.wrap_project_tree_fn(
                     function(args)
                         require 'mind.commands'.open_data_index(args.get_tree(), args.data_dir, args.save_tree, args
-                        .opts)
+                            .opts)
                     end,
                     true)
             end)
@@ -70,7 +70,9 @@ return {
                 edit = {
                     data_extension = ".norg",
                     data_header = "* %s",
-                    copy_link_format = "[]{%s}"
+                    copy_link_format = "[]{%s}",
+                    state_path = "~/.mind/index.json",
+                    data_dir = "~/.mind/data"
                 },
                 keymaps = {
                     normal = {
