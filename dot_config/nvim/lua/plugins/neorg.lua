@@ -71,6 +71,8 @@ return {
                     data_extension = ".norg",
                     data_header = "* %s",
                     copy_link_format = "[]{%s}",
+                },
+                persistence = {
                     state_path = "~/.mind/index.json",
                     data_dir = "~/.mind/data"
                 },
