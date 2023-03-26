@@ -9,3 +9,4 @@ kmonad $HOME/.kmonad.kbd
 xinput set-int-prop 22 "Device Enabled" 8 0
 xinput set-int-prop 21 "Device Enabled" 8 0
 xset -dpms
+xset s off
