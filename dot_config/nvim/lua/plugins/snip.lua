@@ -53,6 +53,7 @@ return {
                                 nvim_lsp = "[LSP]",
                                 luasnip = "[LuaSnip]",
                                 latex_symbols = "[Latex]",
+                                neorg = "[neorg]"
                             })
                         }),
                     },
@@ -110,6 +111,20 @@ return {
                         { name = 'buffer' },
                         { name = "nvim_lsp" },
                         { name = "crates" }
+                    })
+                }),
+                cmp.setup.filetype('norg', {
+                    sources = cmp.config.sources({
+                        { name = 'buffer' },
+                        { name = "nvim_lsp" },
+                        { name = "neorg" },
+                        { name = "luasnip" },
+                        { name = "luasnip_choice" },
+                        { name = 'latex_symbols' },
+                        { name = "treesitter" },
+                        { name = 'calc' },
+                        { name = "path" },
+                        { name = 'git' },
                     })
                 })
         end,

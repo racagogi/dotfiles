@@ -28,7 +28,14 @@ return {
                 },
                 ["core.norg.concealer"] = {},
                 ["core.export"] = {},
-                ["core.export.markdown"] = {}
+                ["core.export.markdown"] = {},
+                ["core.norg.completion"] = {
+                    config = {
+                        engine = "nvim-cmp",
+                        name = "[Neorg]"
+                    }
+                },
+                ["core.integrations.nvim-cmp"] = {}
             },
         },
         dependencies = { { "nvim-lua/plenary.nvim" } },
@@ -70,7 +77,7 @@ return {
                 edit = {
                     data_extension = ".norg",
                     data_header = "* %s",
-                    copy_link_format = "[]{%s}",
+                    copy_link_format = "[](%s)",
                 },
                 persistence = {
                     state_path = "~/.mind/index.json",
