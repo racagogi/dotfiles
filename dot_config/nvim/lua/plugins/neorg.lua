@@ -2,43 +2,65 @@ return {
     {
         "nvim-neorg/neorg",
         build = ":Neorg sync-parsers",
-        opts = {
-            load = {
-                ["core.defaults"] = {},
-                ["core.keybinds"] = {
-                    config = {
-                        default_keybinds = false,
-                        hook = function(keybinds)
-                            keybinds.remap_event("norg", "n", "gc",
-                                ":Neorg keybind all core.looking-glass.magnify-code-block<CR>")
-                            keybinds.remap_event("norg", "n", "gtd", "core.norg.qol.todo_items.todo.task_done")
-                            keybinds.remap_event("norg", "n", "gtu", "core.norg.qol.todo_items.todo.task_undone")
-                            keybinds.remap_event("norg", "n", "gtp", "core.norg.qol.todo_items.todo.task_pending")
-                            keybinds.remap_event("norg", "n", "gth", "core.norg.qol.todo_items.todo.task_on_hold")
-                            keybinds.remap_event("norg", "n", "gtc", "core.norg.qol.todo_items.todo.task_cancelled")
-                            keybinds.remap_event("norg", "n", "gtr", "core.norg.qol.todo_items.todo.task_recurring")
-                            keybinds.remap_event("norg", "n", "gti", "core.norg.qol.todo_items.todo.task_important")
-                            keybinds.remap_event("norg", "n", "gs", "core.norg.qol.todo_items.todo.task_cycle")
-                            keybinds.remap_event("norg", "i", "<C-j>", "core.promo.promote")
-                            keybinds.remap_event("norg", "i", "<C-k>", "core.promo.demote")
-                            keybinds.remap_event("norg", "n", "<C-j>", "core.promo.promote")
-                            keybinds.remap_event("norg", "n", "<C-k>", "core.promo.demote")
-                        end,
-                    }
+        config = function()
+            vim.cmd [[
+            set autochdir
+            ]]
+            require "neorg".setup {
+                load = {
+                    ["core.defaults"] = {},
+                    ["core.keybinds"] = {
+                        config = {
+                            default_keybinds = false,
+                            hook = function(keybinds)
+                                keybinds.remap_event("norg", "n", "gc",
+                                    ":Neorg keybind all core.looking-glass.magnify-code-block<CR>")
+                                keybinds.remap_event("norg", "n", "gtd", "core.norg.qol.todo_items.todo.task_done")
+                                keybinds.remap_event("norg", "n", "gtu", "core.norg.qol.todo_items.todo.task_undone")
+                                keybinds.remap_event("norg", "n", "gtp", "core.norg.qol.todo_items.todo.task_pending")
+                                keybinds.remap_event("norg", "n", "gth", "core.norg.qol.todo_items.todo.task_on_hold")
+                                keybinds.remap_event("norg", "n", "gtc", "core.norg.qol.todo_items.todo.task_cancelled")
+                                keybinds.remap_event("norg", "n", "gtr", "core.norg.qol.todo_items.todo.task_recurring")
+                                keybinds.remap_event("norg", "n", "gti", "core.norg.qol.todo_items.todo.task_important")
+                                keybinds.remap_event("norg", "n", "gs", "core.norg.qol.todo_items.todo.task_cycle")
+                                keybinds.remap_event("norg", "n", "gj", "core.promo.promote")
+                                keybinds.remap_event("norg", "n", "gk", "core.promo.demote")
+                                keybinds.remap_event("norg", "n", "go", "core.itero.next-iteration")
+                                keybinds.remap_event("norg", "n", "gl", "core.norg.esupports.hop.hop-link")
+                                keybinds.remap_event("norg", "n", "<leader>lf",
+                                    "core.integrations.telescope.insert_file_link")
+                                keybinds.remap_event("norg", "n", "<leader>ll", "core.integrations.telescope.insert_link")
+                                keybinds.remap_event("norg", "i", "<leader>lf",
+                                    "core.integrations.telescope.insert_file_link")
+                                keybinds.remap_event("norg", "i", "<leader>ll", "core.integrations.telescope.insert_link")
+                            end,
+                        }
+                    },
+                    ["core.norg.concealer"] = {},
+                    ["core.export"] = {},
+                    ["core.export.markdown"] = {},
+                    ["core.norg.completion"] = {
+                        config = {
+                            engine = "nvim-cmp",
+                            name = "[Neorg]"
+                        }
+                    },
+                    ["core.integrations.nvim-cmp"] = {},
+                    ["core.norg.dirman"] = {
+                        config = {
+                            default_workspace = "danish",
+                            workspaces = {
+                                danish = "~/.mind/data",
+                            },
+                        }
+                    },
+                    ["core.integrations.telescope"] = {},
                 },
-                ["core.norg.concealer"] = {},
-                ["core.export"] = {},
-                ["core.export.markdown"] = {},
-                ["core.norg.completion"] = {
-                    config = {
-                        engine = "nvim-cmp",
-                        name = "[Neorg]"
-                    }
-                },
-                ["core.integrations.nvim-cmp"] = {}
-            },
-        },
-        dependencies = { { "nvim-lua/plenary.nvim" } },
+            }
+        end,
+        dependencies = {
+            { "nvim-lua/plenary.nvim" },
+            { "nvim-neorg/neorg-telescope" } },
     },
     {
         'phaazon/mind.nvim',
@@ -48,31 +70,6 @@ return {
             { "gc", ":lua require 'mind'.close() <cr>" },
         },
         config = function()
-            vim.keymap.set({ 'n' }, 'gs', function()
-                require 'mind'.wrap_project_tree_fn(
-                    function(args)
-                        require 'mind.commands'.open_data_index(args.get_tree(), args.data_dir, args.save_tree, args
-                            .opts)
-                    end,
-                    true)
-            end)
-            vim.keymap.set({ 'n' }, 'gS', function()
-                require 'mind'.wrap_main_tree_fn(function(args)
-                    require 'mind.commands'.open_data_index(args.get_tree(), args.data_dir, args.save_tree, args.opts)
-                end)
-            end)
-            vim.keymap.set({ 'n' }, 'gl', function()
-                require 'mind'.wrap_project_tree_fn(
-                    function(args)
-                        require 'mind.commands'.copy_node_link_index(args.get_tree(), "+", args.opts)
-                    end,
-                    true)
-            end)
-            vim.keymap.set({ 'n' }, 'gL', function()
-                require 'mind'.wrap_main_tree_fn(function(args)
-                    require 'mind.commands'.copy_node_link_index(args.get_tree(), "+", args.opts)
-                end)
-            end)
             require 'mind'.setup({
                 edit = {
                     data_extension = ".norg",

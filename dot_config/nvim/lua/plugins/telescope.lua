@@ -4,17 +4,17 @@ return {
         dependencies = {
             'nvim-tree/nvim-web-devicons'
         },
-        cmd = "Telescope",
-        keys  =            {
+        cmd          = "Telescope",
+        keys         = {
             { "<leader>c", "<cmd>Telescope buffers<cr>",                   desc = "Buffers" },
             { "<leader>a", "<cmd>Telescope autocommands<cr>",              desc = "Auto     Commands" },
-            { "<leader>f", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Buffer"  },
+            { "<leader>f", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Buffer" },
             { "<leader>h", "<cmd>Telescope highlights<cr>",                desc = "Search   Highlight Groups" },
-            { "<leader>k", "<cmd>Telescope keymaps<cr>",                   desc = "Key      Maps"     },
-            { "<leader>r", "<cmd>Telescope registers<cr>",                 desc = "Register find"     },
-            { "<leader>F", "<cmd>Telescope find_files<cr>",                desc = "File     Search"   },
+            { "<leader>k", "<cmd>Telescope keymaps<cr>",                   desc = "Key      Maps" },
+            { "<leader>r", "<cmd>Telescope registers<cr>",                 desc = "Register find" },
+            { mode = {"n","i"}, "<leader>F", "<cmd>Telescope find_files<cr>",                desc = "File     Search" },
         },
-        opts = {
+        opts         = {
             defaults = {
                 mappings = {
                     i = {

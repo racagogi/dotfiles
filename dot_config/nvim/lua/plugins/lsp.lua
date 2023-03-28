@@ -92,6 +92,10 @@ return {
                         on_attach = on_attach,
                         capabilities = capabilities,
                     })
+                elseif server == "racket_langserver" then
+                    lspconfig[server].setup({
+                        filetypes = { "racket" }
+                    })
                 else
                     lspconfig[server].setup({
                         capabilities = capabilities,

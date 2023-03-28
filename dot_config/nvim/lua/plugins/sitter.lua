@@ -5,10 +5,16 @@ return {
         dependencies = {
             "mrjones2014/nvim-ts-rainbow",
             'JoosepAlviste/nvim-ts-context-commentstring',
-            'windwp/nvim-ts-autotag'
+            'windwp/nvim-ts-autotag',
+            'nvim-treesitter/playground'
         },
         build = ":TSUpdate",
         event = "BufReadPost",
+        keys = {
+            { mode = { 'n' }, '<F6>',  "<cmd>TSPlaygroundToggle<cr>" },
+            { mode = { 'n' }, '<M-h>', "<cmd>TSHighlightCapturesUnderCursor<cr>" },
+            { mode = { 'n' }, '<M-d>', "<cmd>TSNodeUnderCursor<cr>" },
+        },
         opts = {
             highlight = { enable = true },
             indent = { enable = true },
@@ -32,7 +38,24 @@ return {
             rainbow = {
                 enable = true,
                 extended_mode = true,
-            }
+            },
+            playground = {
+                enable = true,
+                updatetime = 25,         -- Debounced time for highlighting nodes in the playground from source code
+                persist_queries = false, -- Whether the query persists across vim sessions
+                keybindings = {
+                    toggle_query_editor = 'q',
+                    toggle_hl_groups = 'h',
+                    toggle_injected_languages = 'i',
+                    toggle_anonymous_nodes = 'a',
+                    toggle_language_display = 'I',
+                    focus_language = 'f',
+                    unfocus_language = 'F',
+                    update = 'R',
+                    goto_node = '<cr>',
+                    show_help = '?',
+                }
+            },
         },
         config = function(_, opts)
             require("nvim-treesitter.configs").setup(opts)
