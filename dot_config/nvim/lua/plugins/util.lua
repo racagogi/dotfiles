@@ -108,5 +108,17 @@ return {
             })
         end
     },
-
+    {
+        "chrisgrieser/nvim-various-textobjs",
+        config = function()
+            local keymap = vim.keymap.set
+            local vt = require("various-textobjs")
+            keymap({ "o", "x" }, "iw", function() vt.subword(true) end)
+            keymap({ "o", "x" }, "aw", function() vt.subword(false) end)
+            keymap({ "o", "x" }, "aa", function() vt.entireBuffer() end)
+            vt.setup {
+                useDefaultKeymaps = false,
+            }
+        end
+    }
 }
