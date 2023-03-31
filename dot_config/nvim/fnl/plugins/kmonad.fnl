@@ -1,1 +1,2 @@
-{1 :kmonad/kmonad-vim :event "BufEnter *.kbd"}
+{1 :kmonad/kmonad-vim
+ :event "BufEnter *.kbd"}

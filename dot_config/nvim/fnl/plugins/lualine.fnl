@@ -29,21 +29,17 @@
                                 (fn []
                                   (local msg "No Active Lsp")
                                   (local buf-ft
-                                         (vim.api.nvim_buf_get_option 0
-                                                                      :filetype))
+                                         (vim.api.nvim_buf_get_option 0 :filetype))
                                   (local clients (vim.lsp.get_active_clients))
                                   (when (= (next clients) nil)
-                                    (let [___antifnl_rtn_1___ (.. "ﮤ " msg)]
-                                      (lua "return ___antifnl_rtn_1___")))
+                                    (let [lsp_status (.. "ﮤ " msg)]
+                                      (lua "return lsp_status")))
                                   (each [_ client (ipairs clients)]
                                     (local filetypes client.config.filetypes)
                                     (when (and filetypes
-                                               (not= (vim.fn.index filetypes
-                                                                   buf-ft)
-                                                     (- 1)))
-                                      (let [___antifnl_rtn_1___ (.. "ﮣ "
-                                                                    client.name)]
-                                        (lua "return ___antifnl_rtn_1___")))))]}
+                                               (not= (vim.fn.index filetypes buf-ft) (- 1)))
+                                      (let [lsp_status (.. "ﮣ " client.name)]
+                                        (lua "return lsp_status")))))]}
          :winbar {:lualine_a {}
                   :lualine_b {}
                   :lualine_c {}

@@ -1,1 +1,2 @@
-{1 :williamboman/mason.nvim :config true}
+{1 :williamboman/mason.nvim
+ :config true}

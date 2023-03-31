@@ -1,1 +1,2 @@
-{1 :ethanholz/nvim-lastplace :config true}
+{1 :ethanholz/nvim-lastplace
+ :config true}

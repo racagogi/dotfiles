@@ -1,1 +1,2 @@
-{1 :junegunn/vader.vim :event "BufEnter *.vim"}
+{1 :junegunn/vader.vim
+   :event "BufEnter *.vim"}

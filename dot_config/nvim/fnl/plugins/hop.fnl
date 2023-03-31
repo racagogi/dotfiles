@@ -33,4 +33,4 @@
              (hop.hint_char1 {:direction directions.BEFORE_CURSOR
                               :hint_offset 1}))
          3 keyopts
-         :mode [:n :v :o]}]}  
+         :mode [:n :v :o]}]}

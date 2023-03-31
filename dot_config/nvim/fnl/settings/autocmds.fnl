@@ -1,9 +1,9 @@
 ;; Autocommands for nvim.
 (local autocmds
-       [[:FileType]
-        {:pattern :rkt
-         :callback (fn []
-                     (set vim.filetype :racket))}
+       [[:FileType
+         {:pattern :rkt
+          :callback (fn []
+                      (set vim.filetype :racket))}]
         [:FileType
          {:pattern :prolog
           :callback (fn []

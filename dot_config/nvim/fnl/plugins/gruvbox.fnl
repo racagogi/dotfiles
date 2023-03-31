@@ -10,14 +10,13 @@
                                            :invert_tabline false
                                            :italic {:comments true
                                                     :folds true
-                                                    :operators false
-                                                    :strings true}
+                                                    :operators true
+                                                    :strings false}
                                            :overrides {}
                                            :palette_overrides {}
                                            :strikethrough true
                                            :transparent_mode false
                                            :undercurl true
                                            :underline true})
-           (vim.cmd "            set background=light
-            colorscheme gruvbox
-            "))}
+           (set vim.opt.background :light)
+           (vim.cmd.colorscheme :gruvbox))}

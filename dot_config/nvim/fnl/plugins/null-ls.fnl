@@ -4,14 +4,14 @@
            (local augroup (vim.api.nvim_create_augroup :LspFormatting {}))
            (null-ls.setup {:on_attach (fn [client bufnr]
                                         (when (client.supports_method :textDocument/formatting)
-                                          (vim.api.nvim_clear_autocmds {:buffer bufnr
-                                                                        :group augroup})
-                                          (vim.api.nvim_create_autocmd :BufWritePre
-                                                                       {:buffer bufnr
-                                                                        :callback (fn []
-                                                                                    (vim.lsp.buf.formatting_sync {}
-                                                                                                                 100))
-                                                                        :group augroup})))
+                                          (vim.api.nvim_clear_autocmds
+                                           {:buffer bufnr
+                                            :group augroup})
+                                          (vim.api.nvim_create_autocmd
+                                            :BufWritePre
+                                            {:buffer bufnr
+                                             :callback (fn [] (vim.lsp.buf.formatting_sync {} 100))
+                                             :group augroup})))
                            :sources [null-ls.builtins.diagnostics.cpplint
                                      null-ls.builtins.formatting.clang_format
                                      null-ls.builtins.formatting.joker
