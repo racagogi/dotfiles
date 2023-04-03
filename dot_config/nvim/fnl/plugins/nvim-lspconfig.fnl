@@ -29,6 +29,7 @@
                 :tailwindcss
                 :texlab
                 :tsserver
+                :nil_ls
                 :volar
                 :vimls
                 :lemminx
@@ -55,24 +56,25 @@
            (local lspconfig (require :lspconfig))
            (each [_ server (ipairs servers)]
              (if (= server :lua_ls)
-                 ((. (. lspconfig server) :setup) {: capabilities
-                                                   :on_attach on-attach
-                                                   :settings {:Lua {:diagnostics {:globals [:vim
-                                                                                            :use]}}}})
+                 ((. (. lspconfig server) :setup)
+                  {: capabilities
+                       :on_attach on-attach
+                       :settings {:Lua {:diagnostics {:globals [:vim :use]}}}})
                  (= server :elixirls)
-                 ((. (. lspconfig server) :setup) {: capabilities
-                                                   :cmd [:/home/raca/.local/share/nvim/mason/packages/elixir-ls/language_server.sh]
-                                                   :on_attach on-attach})
+                 ((. (. lspconfig server) :setup)
+                  {: capabilities
+                   :cmd [:/home/raca/.local/share/nvim/mason/packages/elixir-ls/language_server.sh]
+                   :on_attach on-attach})
                  (= server :racket_langserver)
                  ((. (. lspconfig server) :setup) {:filetypes [:racket]})
                  (= server :fennel_language_server)
-                 ((. (. lspconfig server) :setup) {:root_dir (lspconfig.util.root_pattern :fnl)
-                                                   :settings {:fennel {:diagnostics {:globals [:vim]}
-                                                                       :workspace {:library (vim.api.nvim_list_runtime_paths)}}}})
+                 ((. (. lspconfig server) :setup)
+                  {:root_dir (lspconfig.util.root_pattern :fnl)
+                   :settings {:fennel {:diagnostics {:globals [:vim]}
+                                        :workspace {:library (vim.api.nvim_list_runtime_paths)}}}})
                  ((. (. lspconfig server) :setup) {: capabilities
-                                                   :on_attach on-attach})))
-           (set vim.opt.hlsearch true)
-           (vim.cmd.autocmd "BufRead * :echo \"hello \" "))
+                                                   :on_attach on-attach}))))
+
  :dependencies [:ray-x/lsp_signature.nvim
                 :folke/neodev.nvim
                 "https://git.sr.ht/~whynothugo/lsp_lines.nvim"]

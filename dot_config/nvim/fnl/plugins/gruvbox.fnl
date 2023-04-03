@@ -10,7 +10,7 @@
                                            :invert_tabline false
                                            :italic {:comments true
                                                     :folds true
-                                                    :operators true
+                                                    :operators false
                                                     :strings false}
                                            :overrides {}
                                            :palette_overrides {}

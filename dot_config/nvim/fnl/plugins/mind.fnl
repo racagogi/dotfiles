@@ -1,4 +1,4 @@
-{1 :phaazon/mind.nvim
+{1 :racagogi/mind.nvim
  :config (fn []
            ((. (require :mind) :setup)
             {:edit {:copy_link_format "[](%s)"
