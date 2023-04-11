@@ -39,7 +39,6 @@
 {1 :neovim/nvim-lspconfig
  :config (fn []
            ((. (require :neodev) :setup) {})
-           ((. (require :lsp_lines) :setup))
            (var capabilities (vim.lsp.protocol.make_client_capabilities))
            (set capabilities
                 ((. (require :cmp_nvim_lsp) :default_capabilities) capabilities))
@@ -76,8 +75,8 @@
                                                    :on_attach on-attach}))))
 
  :dependencies [:ray-x/lsp_signature.nvim
-                :folke/neodev.nvim
-                "https://git.sr.ht/~whynothugo/lsp_lines.nvim"]
+                :folke/neodev.nvim]
+
  :event :BufRead
  :keys [{1 :<space>f
          2 (fn [] (vim.lsp.buf.format {:async true}))

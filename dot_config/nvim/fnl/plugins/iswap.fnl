@@ -1,3 +1,3 @@
 {1 :mizlan/iswap.nvim
  :config true
- :keys [[:<m-n> :<cmd>iswapnodewith<cr>]]}
+ :keys [[:<m-n> :<cmd>ISwapNodeWith<cr>]]}
