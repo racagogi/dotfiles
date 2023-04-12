@@ -18,7 +18,7 @@
 (defalias
     kor KeyHangeul
     han KeyHanja
-    bro (cmd-button "brave")
+    bro (cmd-button "vivaldi-stable")
     ter (cmd-button "wezterm")
     la1 (layer-toggle func)
     vup (cmd-button "pactl set-sink-volume @DEFAULT_SINK@ +5%")
