@@ -12,8 +12,7 @@
                                             {:buffer bufnr
                                              :callback (fn [] (vim.lsp.buf.formatting_sync {} 100))
                                              :group augroup})))
-                           :sources [null-ls.builtins.diagnostics.cpplint
-                                     null-ls.builtins.formatting.clang_format
+                           :sources [
                                      null-ls.builtins.formatting.joker
                                      null-ls.builtins.formatting.djlint
                                      null-ls.builtins.diagnostics.djlint
