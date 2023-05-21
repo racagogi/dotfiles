@@ -10,14 +10,14 @@
              (local directions (. (require :hop.hint) :HintDirection))
              (hop.hint_char1 {:direction directions.AFTER_CURSOR}))
          3 keyopts
-         :mode [:n :v :o]}
+         :mode [:n :o]}
         {1 :F
          2 (fn []
              (local hop (require :hop))
              (local directions (. (require :hop.hint) :HintDirection))
              (hop.hint_char1 {:direction directions.BEFORE_CURSOR}))
          3 keyopts
-         :mode [:n :v :o]}
+         :mode [:n :o]}
         {1 :t
          2 (fn []
              (local hop (require :hop))
@@ -25,7 +25,7 @@
              (hop.hint_char1 {:direction directions.AFTER_CURSOR
                               :hint_offset (- 1)}))
          3 keyopts
-         :mode [:n :v :o]}
+         :mode [:n :o]}
         {1 :T
          2 (fn []
              (local hop (require :hop))
@@ -33,4 +33,4 @@
              (hop.hint_char1 {:direction directions.BEFORE_CURSOR
                               :hint_offset 1}))
          3 keyopts
-         :mode [:n :v :o]}]}
+         :mode [:n :o]}]}
