@@ -1,5 +1,5 @@
 {1 :racagogi/mind.nvim
- :dev true
+ :dev false
  :config (fn []
            ((. (require :mind) :setup)
             {:edit {:copy_link_format "[](%s)"

@@ -29,7 +29,7 @@
                 :tailwindcss
                 :texlab
                 :tsserver
-                :nil_ls
+                ; :nil_ls
                 :volar
                 :vimls
                 :lemminx
