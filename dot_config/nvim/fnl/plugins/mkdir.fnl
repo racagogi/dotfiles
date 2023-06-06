@@ -1,1 +1,0 @@
-[:jghauser/mkdir.nvim]
