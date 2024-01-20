@@ -45,13 +45,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
       ((modm .|. shiftMask, xK_k), windows W.swapUp),
       ((modm, xK_t), withFocused $ windows . W.sink),
       ((modm .|. shiftMask, xK_q), io exitSuccess),
-      ((modm .|. shiftMask, xK_c), kill),
-      ((noModMask, xF86XK_Calculator), spawn $ XMonad.terminal conf),
-      ((noModMask, xK_Print), spawn "maim -s ~/$(date +%Y-%m-%d-%H-%M-%S).png"),
-      ((noModMask, xF86XK_MenuKB), spawn "vivaldi-stable"),
-      ((0, xF86XK_AudioMute), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle"),
-      ((0, xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%"),
-      ((0, xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
+      ((modm .|. shiftMask, xK_c), kill)
     ]
       ++ [ ((m .|. modm, k), windows $ f i)
            | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9],
