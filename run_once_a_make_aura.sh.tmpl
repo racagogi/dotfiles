@@ -5,23 +5,6 @@ sudo timedatectl set-local-rtc 1 --adjust-system-clock
 git clone --depth 1 https://aur.archlinux.org/aura-bin.git
 mkdir ~/.local/bin/
 
-git clone --depth 1 https://github.com/rbenv/rbenv.git ~/.rbenv
-cd ~/.rbenv && src/configure && make -C src && cd ~
-mkdir -p ~/.rbenv/plugins
-git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-
-git clone --depth 1 https://github.com/pyenv/pyenv.git ~/.pyenv
-cd ~/.pyenv && src/configure && make -C src && cd ~
-
-git clone --depth 1 https://github.com/syndbg/goenv.git ~/.goenv
-
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
-
-curl -L -o elm.gz https://github.com/elm/compiler/releases/download/0.19.1/binary-for-linux-64-bit.gz
-gunzip elm.gz
-chmod +x elm
-mv elm ~/.local/bin/
-
 git clone --depth 1 https://github.com/xmonad/xmonad-contrib .xmonad/xmonad-contrib
 git clone --depth 1 https://github.com/xmonad/xmonad .xmonad/xmonad
 git clone --depth 1 https://github.com/kmonad/kmonad .kmonad
