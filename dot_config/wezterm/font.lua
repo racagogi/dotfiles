@@ -1,8 +1,7 @@
 local module = {}
 local wezterm = require 'wezterm'
 function module.set(config)
-    config.dpi             = 144.0
-    config.font_size       = 12
+    config.font_size       = 16
     config.unicode_version = 14
     config.font            = wezterm.font_with_fallback {
         {
