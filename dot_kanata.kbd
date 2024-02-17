@@ -1,9 +1,5 @@
 (defcfg
-  input  (device-file "/dev/input/by-id/usb-Milsky_GK868B_CA2019020001-event-kbd")
-  output (uinput-sink "KMonad"
-    "/bin/sleep 1 && /bin/setxkbmap -option compose:ralt")
-  fallthrough true
-  allow-cmd true
+  danger-enable-cmd yes
 )
 
 (defsrc
@@ -16,15 +12,13 @@
 )
 
 (defalias
-    kor KeyHangeul
-    han KeyHanja
-    bro (cmd-button "vivaldi-stable")
-    ter (cmd-button "wezterm")
-    la1 (layer-toggle func)
-    vup (cmd-button "pactl set-sink-volume @DEFAULT_SINK@ +5%")
-    vdn (cmd-button "pactl set-sink-volume @DEFAULT_SINK@ -5%")
-    rof (cmd-button "~/.xmonad/rofi/dmenu.sh")
-    fig (cmd-button "maim -s ~/$(date +%Y-%m-%d-%H-%M-%S).png")
+    bro (cmd vivaldi-stable)
+    ter (cmd wezterm)
+    la1 (layer-while-held func)
+    vup (cmd "pactl set-sink-volume @DEFAULT_SINK@ +5%")
+    vdn (cmd "pactl set-sink-volume @DEFAULT_SINK@ -5%")
+    rof (cmd "~/.xmonad/rofi/dmenu.sh")
+    fig (cmd "maim -s ~/$(date +%Y-%m-%d-%H-%M-%S).png")
     )
 
 (deflayer base
@@ -33,7 +27,7 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _     @ter _    XX
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _                    _
-  @la1    _    _              _              @kor _    _    @han            _    _    _
+  @la1    _    _              _                _    _    _   _          _    _    _
 )
 
 (deflayer func
@@ -42,5 +36,5 @@
   _    @rof _    _    _    _    _    _    _    _    _    _    _    _     @ter _    XX
   _    _    @fig _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _                    @vup
-  _    _    _              _              @kor _    _    @han            _    @vdn _
+  _    _    _              _              _    _    _    _               _    @vdn _
 )
