@@ -1,0 +1,8 @@
+#!/bin/zsh
+THEME_DIR=$HOME/.config/leftwm/themes/current
+
+killall -q polybar
+while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
+polybar -q main -c $THEME_DIR/config.ini&
+feh --bg-fill $THEME_DIR/desktop.jpg&
+picom -b --config $THEME_DIR/picom

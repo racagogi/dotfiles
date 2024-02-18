@@ -7,18 +7,25 @@
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc  ins  home pgup
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \     del  end  pgdn
   lctl a    s    d    f    g    h    j    k    l    ;    '    ret
-  lsft z    x    c    v    b    n    m    ,    .    /    rsft                 up
-  caps lmet lalt           spc            ralt rmet cmp  rctl            left down rght
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft            up
+  caps lmet lalt           spc            ralt rmet rctl            left down rght
 )
+
+
+(deflocalkeys-linux
+  🇰🇷 122
+  漢   123
+)
+
 
 (defalias
     bro (cmd vivaldi-stable)
     ter (cmd wezterm)
     la1 (layer-while-held func)
-    vup (cmd "pactl set-sink-volume @DEFAULT_SINK@ +5%")
-    vdn (cmd "pactl set-sink-volume @DEFAULT_SINK@ -5%")
+    vup (cmd pactl set-sink-volume @DEFAULT_SINK@ +5%)
+    vdn (cmd pactl set-sink-volume @DEFAULT_SINK@ -5%)
     rof (cmd "~/.xmonad/rofi/dmenu.sh")
-    fig (cmd "maim -s ~/$(date +%Y-%m-%d-%H-%M-%S).png")
+    fig (cmd maim -s ~/$(date +%Y-%m-%d-%H-%M-%S).png)
     )
 
 (deflayer base
@@ -26,8 +33,8 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _     @bro _    XX
   _    _    _    _    _    _    _    _    _    _    _    _    _    _     @ter _    XX
   _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _                    _
-  @la1    _    _              _                _    _    _   _          _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _               _
+  @la1    _    _              _                🇰🇷 _    漢         _    _    _
 )
 
 (deflayer func
@@ -35,6 +42,6 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _     @bro _    XX
   _    @rof _    _    _    _    _    _    _    _    _    _    _    _     @ter _    XX
   _    _    @fig _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _                    @vup
-  _    _    _              _              _    _    _    _               _    @vdn _
+  _    _    _    _    _    _    _    _    _    _    _    _               @vup
+  _    _    _              _                  🇰🇷  _   漢           _   @vdn _
 )
