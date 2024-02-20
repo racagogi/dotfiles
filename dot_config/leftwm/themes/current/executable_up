@@ -1,9 +1,14 @@
-#!/bin/zsh
-THEME_DIR=$HOME/.config/leftwm/themes/current
-
-killall -q polybar
-while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
-polybar -q main -c $THEME_DIR/config.ini&
-feh --bg-fill $THEME_DIR/desktop.jpg&
-picom -b --config $THEME_DIR/picom
-leftwm-command "LoadTheme ~/.config/leftwm/themes/current/theme.ron"
+#!/usr/bin/env bash
+export SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+eww daemon &
+picom --experimental-backends &> /dev/null &
+leftwm-command "LoadTheme $SCRIPTPATH/theme.ron"
+feh --bg-fill $SCRIPTPATH/background.jpg
+sleep 1
+index=0
+sizes=( $(leftwm-state -q -n -t $SCRIPTPATH/sizes.liquid | sed -r '/^\s*$/d' ) )
+for size in "${sizes[@]}"
+do
+    eww open bar$index
+  let index=index+1
+done

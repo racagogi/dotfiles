@@ -1,3 +1,10 @@
-#!/bin/zsh
+#!/usr/bin/env bash
 
-leftwm command "UnloadTheme"
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+
+leftwm-command "UnloadTheme"
+pkill picom
+pkill polybar
+if [ -x "$(command -v eww)" ]; then
+  eww kill
+fi
