@@ -1,7 +1,6 @@
-{{ if eq .chezmoi.osRelease.name "Arch Linux" -}}
 #!/bin/sh
 mkdir ~/.local/bin/
 git clone --depth 1 https://github.com/wez/wezterm.git
 git clone --depth 1 https://github.com/Riey/kime.git
+git clone --depth 1 https://github.com/elkowar/eww.git
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-{{ end -}}
